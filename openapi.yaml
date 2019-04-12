@@ -1,0 +1,493 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: Book store
+  license:
+    name: MIT
+paths:
+  /user:
+    get:
+      operationId: getUser
+      summary: Get information of logged user
+      security:
+        - session: []
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpandedUser"
+        401:
+          description: Unauthorized
+        404:
+          description: Not found
+  /user/register:
+    post:
+      operationId: registration
+      summary: Register the user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterCredentials"
+      responses:
+        200:
+          description: OK
+  /user/login:
+    post:
+      operationId: login
+      summary: login
+      requestBody:
+        required: true
+        content:
+          application/jason:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not found
+        403:
+          description: Invalid password
+  /contact:
+    post:
+      operationId: contact
+      summary: Contact webmaster
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subject:
+                  type: string
+                text:
+                  type: string
+      responses:
+        200:
+          description: OK
+  /order/{orderId}:
+    get:
+      operationId: getOrder
+      summary: Get an order
+      security:
+        - session: []
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/ExpandedOrder"
+        404:
+          description: Not found
+        501:
+          description: Unauthorized
+  /order:
+    post:
+      operationId: createOrder
+      summary: Create an order
+      security:
+        - session: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookQuantitiesMap"
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad request. Maybe some id is wrong
+        401:
+          description: Unauthorized
+  /reservation/{reservationId}:
+    get:
+      operationId: getReservation
+      summary: Get a reservation
+      security:
+        - session: []
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpandedReservation"
+        404:
+          description: Not found
+        501:
+          description: Unauthorized
+  /reservation:
+    post:
+      operationId: createReservation
+      summary: Create a reservation
+      security:
+        - session: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookQuantitiesMap"
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad request. Maybe some id is wrong
+        401:
+          description: Unauthorized
+  /genre/{genreId}:
+    get:
+      operationId: getGenre
+      summary: Get Genre
+      parameters:
+        - name: genreId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Genre"
+        404:
+          description: Not found
+  /genre:
+    get:
+      operationId: getGenres
+      summary: Get genres
+      responses: 
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Genre"
+  /theme/{themeId}:
+    get:
+      operationId: getTheme
+      summary: Get Theme
+      parameters:
+        - name: themeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Theme"
+        404:
+          description: Not found
+  /theme:
+    get:
+      operationId: getThemes
+      summary: Get themes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Theme"
+  /author/{authorId}:
+    get:
+      operationId: getAuthor
+      summary: Get Author
+      parameters:
+        - name: authorId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Author"
+        404:
+          description: Not found
+  /author:
+    get:
+      operationId: getAuthors
+      summary: Get authors
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Author"
+  /bookEvent/{bookEventId}:
+    get:
+      operationId: getBookEvent
+      summary: Get BookEvent
+      parameters:
+        - name: bookEventId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpandedBookEvent"
+        404:
+          description: Not found
+  /bookEvent:
+    get:
+      operationId: getBookEvents
+      summary: Get bookEvents
+      parameters:
+        - name: onlyThisMonth
+          in: query
+          required: false
+          schema: 
+            type: boolean
+            default: false
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BookEvent"
+  /book/{bookId}:
+    get:
+      operationId: getBook
+      summary: Get Book
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpandedBook"
+        404:
+          description: Not found
+  /book/staff-picks:
+    get:
+      operationId: getStaffPicksBooks
+      summary: Get Staff picks books
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+  /book/best-seller:
+    get:
+      operationId: getBestSellerBooks
+      summary: Get Best-seller books
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+  /book:
+    get:
+      operationId: getBooks
+      summary: Get Books
+      parameters:
+        - name: author
+          description: Filter by author ids
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: genre
+          description: Filter by genre ids
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: theme
+          description: Filter by theme ids
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+components:
+  securitySchemes:
+    CookieSession:
+      type: apiKey
+      name: session
+      in: cookie
+  schemas:
+    RegisterCredentials:
+      allOf:
+        - $ref: "#/components/schemas/User"
+        - properties:
+            password:
+              type: string
+    LoginCredentials:
+      type: object
+      properties:
+        usernameOrMail:
+          type: string
+        password:
+          type: string
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        mail:
+          type: string
+    ExpandedOrder:
+      type: object
+      properties:
+        id:
+          type: string
+        books:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/Book"
+              - properties:
+                  quantity:
+                    type: integer
+    ExpandedReservation:
+      $ref: "#/components/schemas/ExpandedOrder"
+    ExpandedUser:
+      allOf:
+        - $ref: "#/components/schemas/User"
+        - properties:
+            orders:
+              type: array
+              description: Ids of user orders
+              items:
+                type: string
+            reservations:
+              type: array
+              description: Ids of user reservation
+              items:
+                type: string
+    Genre:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Theme:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    BookEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        location:
+          type: string
+        presenter:
+          type: string
+    Author:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Book:
+      type: object
+      properties:
+        isbn:
+          type: string
+        name:
+          type: string
+    ExpandedBook:
+      allOf:
+        - $ref: "#/components/schemas/Book"
+        - properties:
+            author:
+              $ref: "#/components/schemas/Author"
+            genre:
+              $ref: "#/components/schemas/Genre"
+            theme:
+              $ref: "#/components/schemas/Theme"
+            event:
+              $ref: "#/components/schemas/BookEvent"
+    ExpandedBookEvent:
+      allOf:
+        - $ref: "#/components/schemas/BookEvent"
+        - properties:
+            book:
+              $ref: "#/components/schemas/Book"
+    BookQuantitiesMap:
+      type: object
+      description: Map where keys are book isbn and values are quantities for each book
+      additionalProperties:
+        type: integer
+      example:
+        "9788889637418": 1
+        "9788889637411": 3
