@@ -10,7 +10,7 @@ paths:
       operationId: getUser
       summary: Get information of logged user
       security:
-        - session: []
+        - cookieSession: []
       responses:
         200:
           description: OK
@@ -42,7 +42,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/jason:
+          application/json:
             schema:
               $ref: "#/components/schemas/Login"
       responses:
@@ -75,7 +75,7 @@ paths:
       operationId: getOrder
       summary: Get an order
       security:
-        - session: []
+        - cookieSession: []
       parameters:
         - name: orderId
           in: path
@@ -98,7 +98,7 @@ paths:
       operationId: createOrder
       summary: Create an order
       security:
-        - session: []
+        - cookieSession: []
       requestBody:
         required: true
         content:
@@ -117,7 +117,7 @@ paths:
       operationId: getReservation
       summary: Get a reservation
       security:
-        - session: []
+        - cookieSession: []
       parameters:
         - name: reservationId
           in: path
@@ -140,7 +140,7 @@ paths:
       operationId: createReservation
       summary: Create a reservation
       security:
-        - session: []
+        - cookieSession: []
       requestBody:
         required: true
         content:
@@ -298,7 +298,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/ISBN"
       responses:
         200:
           description: OK
@@ -368,9 +368,9 @@ paths:
                   $ref: "#/components/schemas/Book"
 components:
   securitySchemes:
-    CookieSession:
+    cookieSession:
       type: apiKey
-      name: session
+      name: Cookie
       in: cookie
   schemas:
     RegisterCredentials:
@@ -393,6 +393,10 @@ components:
           type: string
         mail:
           type: string
+    ISBN:
+      type: string
+      maxLength: 13
+      minLength: 13
     ExpandedOrder:
       type: object
       properties:
@@ -456,20 +460,20 @@ components:
       type: object
       properties:
         isbn:
-          type: string
+          $ref: "#/components/schemas/ISBN"
         name:
           type: string
     ExpandedBook:
       allOf:
         - $ref: "#/components/schemas/Book"
         - properties:
-            author:
+            Author:
               $ref: "#/components/schemas/Author"
-            genre:
+            Genre:
               $ref: "#/components/schemas/Genre"
-            theme:
+            Theme:
               $ref: "#/components/schemas/Theme"
-            event:
+            BookEvent:
               $ref: "#/components/schemas/BookEvent"
     ExpandedBookEvent:
       allOf:
