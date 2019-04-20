@@ -11,12 +11,6 @@ paths:
       summary: Get information of logged user
       security:
         - session: []
-      parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         200:
           description: OK

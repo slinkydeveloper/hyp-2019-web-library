@@ -116,3 +116,5 @@ typings/
 .next
 
 .iml
+
+sequelize-template
