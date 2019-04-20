@@ -1,12 +1,20 @@
 /* eslint new-cap: "off", global-require: "off" */
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+const _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('User', {
+    let User = sequelize.define('User', {
         username: {
             type: DataTypes.STRING(100),
             field: 'username',
             allowNull: false,
             primaryKey: true
+        },
+        mail: {
+            type: DataTypes.STRING(100),
+            field: 'mail',
+            allowNull: false
         },
         password: {
             type: DataTypes.CHAR(64),
@@ -18,6 +26,30 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'user',
         timestamps: false
     });
+
+    User.loginUser = function(usernameOrMail, hashedPassword) {
+        return User.findOne({
+            where: {
+                [Op.and]: {
+                    [Op.or]: [
+                        { username: usernameOrMail },
+                        { mail: usernameOrMail }
+                    ],
+                    password: hashedPassword
+                }
+            }
+        })
+    };
+
+    User.prototype.toSimpleJSON = function() {
+        return _.pick(this.toJSON(), ['mail', 'username'])
+    };
+
+    User.prototype.toExpandedJSON = function() {
+        return _.pick(this.toJSON(), ['mail', 'username', 'Orders', 'Reservations'])
+    };
+
+    return User;
 };
 
 module.exports.initRelations = () => {
@@ -29,14 +61,14 @@ module.exports.initRelations = () => {
     const Reservation = model.Reservation;
 
     User.hasMany(Order, {
-        as: 'OrderUserIdFkeys',
+        as: 'Orders',
         foreignKey: 'user_id',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
 
     User.hasMany(Reservation, {
-        as: 'ReservationUserIdFkeys',
+        as: 'Reservations',
         foreignKey: 'user_id',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'

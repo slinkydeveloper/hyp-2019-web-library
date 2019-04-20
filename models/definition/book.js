@@ -1,7 +1,10 @@
 /* eslint new-cap: "off", global-require: "off" */
+const _ = require('lodash');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Book', {
+    let Book = sequelize.define('Book', {
         isbn: {
             type: DataTypes.CHAR(13),
             field: 'isbn',
@@ -62,6 +65,16 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'book',
         timestamps: false
     });
+
+    Book.prototype.toExpandedJSON = function() {
+        return _.pick(this.toJSON(), ['isbn', 'name', 'Author', 'Theme', 'Genre', 'BookEvent'])
+    };
+
+    Book.prototype.toSimpleJSON = function() {
+        return _.pick(this.toJSON(), ['isbn', 'name'])
+    };
+
+    return Book;
 };
 
 module.exports.initRelations = () => {
@@ -137,5 +150,34 @@ module.exports.initRelations = () => {
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
+
+    Book.filteredBooks = function(author, genre, theme) {
+        let includes = [];
+        if (_.isString(author)) {
+            includes.push({
+                model: Author,
+                as: 'Author',
+                where: {id: author}
+            })
+        }
+
+        if (_.isString(genre)) {
+            includes.push({
+                model: Genre,
+                as: 'Genre',
+                where: {id: genre}
+            })
+        }
+
+        if (_.isString(theme)) {
+            includes.push({
+                model: Theme,
+                as: 'Theme',
+                where: {id: theme}
+            })
+        }
+
+        return model.Book.findAll({include: includes});
+    };
 
 };

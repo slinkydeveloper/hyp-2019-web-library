@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-backend": "webpack --config backend-webpack.config.js",
-    "run-backend": "node index.js",
+    "start": "node index.js",
     "initialize-data": "node initialize_data.js"
   },
   "author": "Francesco Guardiani",
@@ -20,15 +20,18 @@
   "homepage": "https://github.com/slinkydeveloper/hyp-2019-web-library#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "connect-pg-simple": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-openapi-validate": "^0.4.4",
+    "express-session": "^1.16.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
     "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^5.7.0",
-    "swagger-ui-dist": "^3.22.1"
+    "sequelize": "^5.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

@@ -1,5 +1,6 @@
-const model = require('../models/index.js')
-const _ = require('lodash')
+const model = require('../models/index.js');
+const _ = require('lodash');
+const config = require('../config/config.js');
 
 module.exports = (app, validator) => {
 
@@ -24,9 +25,36 @@ module.exports = (app, validator) => {
             book =>
                 _.isNull(book) || _.isUndefined(book) ?
                     res.status(404).end() :
-                    res.json(_.pick(book.toJSON(), ['isbn', 'name', 'Author', 'Theme', 'Genre', 'BookEvent'])),
-            res.next
+                    res.json(book.toExpandedJSON()),
+            next
         );
-    })
+    });
+
+    app.get('/book/best-seller', (req, res, next) => {
+        model.Book.findAll({where:{isbn: config["best-seller"]}})
+            .then(books => res.json(
+                _.chain(books.toJSON())
+                    .map(b => b.toSimpleJSON())
+                    .values()
+            ), next)
+    });
+
+    app.get('/book/staff-picks', (req, res, next) => {
+        model.Book.findAll({where:{isbn: config["staff-picks"]}})
+            .then(books => res.json(
+                _.chain(books.toJSON())
+                    .map(b => b.toSimpleJSON())
+                    .values()
+            ), next)
+    });
+
+    app.get('/book', validator.validate('get', '/book'), (req, res, next) => {
+        model.Book.filteredBooks(_.get(req, 'query.author'), _.get(req, 'query.genre'), _.get(req, 'query.theme'))
+            .then(books => res.json(
+                _.chain(books)
+                    .map(b => b.toSimpleJSON())
+                    .values()
+            ), next)
+    });
 
 };

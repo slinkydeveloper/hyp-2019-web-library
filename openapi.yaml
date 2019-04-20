@@ -44,14 +44,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Login"
+              $ref: "#/components/schemas/LoginCredentials"
       responses:
         200:
           description: OK
         404:
-          description: Not found
-        403:
-          description: Invalid password
+          description: Not found or invalid password
   /contact:
     post:
       operationId: contact
@@ -379,6 +377,10 @@ components:
         - properties:
             password:
               type: string
+          required:
+            - username
+            - mail
+            - password
     LoginCredentials:
       type: object
       properties:
@@ -386,6 +388,9 @@ components:
           type: string
         password:
           type: string
+      required:
+        - usernameOrMail
+        - password
     User:
       type: object
       properties:
@@ -416,12 +421,12 @@ components:
       allOf:
         - $ref: "#/components/schemas/User"
         - properties:
-            orders:
+            Orders:
               type: array
               description: Ids of user orders
               items:
                 type: string
-            reservations:
+            Reservations:
               type: array
               description: Ids of user reservation
               items:

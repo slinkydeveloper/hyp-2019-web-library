@@ -3,11 +3,12 @@ const express = require("express");
 const { OpenApiValidator } = require("express-openapi-validate/dist/index");
 const jsYaml = require("js-yaml");
 const Sequelize = require('sequelize');
-const config = require('./config/config.json')[process.env.NODE_ENV || 'development'];
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
+const config = require('./config/config.js');
+const sequelize = new Sequelize(config.db.url);
 require('./models/index.js').init(sequelize);
-const pathToSwaggerUi = require('swagger-ui-dist').absolutePath()
-const cors = require('cors')
+const cors = require('cors');
+const morgan = require('morgan');
+const session = require('express-session');
 
 //TODO reorder shit
 
@@ -17,21 +18,36 @@ const openApiDocument = jsYaml.safeLoad(
 const validator = new OpenApiValidator(openApiDocument);
 
 const app = express();
+app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
 
 // Mount Spec
 app.get('/backend/spec.yaml', (req, res) => res.sendFile(__dirname + '/openapi.yaml'));
 // Mount backend docs and stuff
-app.get('/backend/main.html', (req, res) => res.redirect('/backend'))
+app.get('/backend/main.html', (req, res) => res.redirect('/backend')); // Redirect main.html to index.html
 app.use('/backend', express.static('backend_public'));
+
+app.use(session({
+    store: new (require('connect-pg-simple')(session))({
+        conString: config.db.url,
+        schemaName: 'library'
+    }),
+    secret: "my super secret",
+    resave: false,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+}));
 
 // Mount api paths
 require('./paths/books')(app, validator);
+require('./paths/users')(app, validator);
+
+app.use('/', express.static('dist'));
 
 // Fallback error handler
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
+    console.error(err);
     res.status(statusCode).json({
         error: {
             name: err.name,

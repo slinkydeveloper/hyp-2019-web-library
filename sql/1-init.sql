@@ -4,6 +4,7 @@ CREATE SCHEMA IF NOT EXISTS library;
 
 CREATE TABLE IF NOT EXISTS library.User (
     username VARCHAR(100) NOT NULL PRIMARY KEY,
+    mail VARCHAR(100) NOT NULL,
     "password" CHAR(64) UNIQUE NOT NULL
 );
 
@@ -60,3 +61,11 @@ CREATE TABLE IF NOT EXISTS library.ReservationBook (
     quantity INTEGER NOT NULL,
     PRIMARY KEY(book_isbn, reservation_id)
 );
+
+CREATE TABLE IF NOT EXISTS library."session" (
+                           "sid" varchar NOT NULL,
+                           "sess" json NOT NULL,
+                           "expire" timestamp(6) NOT NULL
+)
+    WITH (OIDS=FALSE);
+ALTER TABLE library."session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
