@@ -1,7 +1,8 @@
 /* eslint new-cap: "off", global-require: "off" */
+const _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Genre', {
+    let Genre = sequelize.define('Genre', {
         id: {
             type: DataTypes.INTEGER,
             field: 'id',
@@ -19,6 +20,12 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'genre',
         timestamps: false
     });
+
+    Genre.prototype.toSimpleJSON = function() {
+        return _.pick(this.toJSON(), ['id', 'name'])
+    };
+
+    return Genre;
 };
 
 module.exports.initRelations = () => {
@@ -34,33 +41,6 @@ module.exports.initRelations = () => {
     Genre.hasMany(Book, {
         as: 'BookGenreIdFkeys',
         foreignKey: 'genre_id',
-        onDelete: 'NO ACTION',
-        onUpdate: 'NO ACTION'
-    });
-
-    Genre.belongsToMany(Author, {
-        as: 'BookAuthors',
-        through: Book,
-        foreignKey: 'genre_id',
-        otherKey: 'author_id',
-        onDelete: 'NO ACTION',
-        onUpdate: 'NO ACTION'
-    });
-
-    Genre.belongsToMany(Bookevent, {
-        as: 'BookBookEvents',
-        through: Book,
-        foreignKey: 'genre_id',
-        otherKey: 'book_event',
-        onDelete: 'NO ACTION',
-        onUpdate: 'NO ACTION'
-    });
-
-    Genre.belongsToMany(Theme, {
-        as: 'BookThemes',
-        through: Book,
-        foreignKey: 'genre_id',
-        otherKey: 'theme_id',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });

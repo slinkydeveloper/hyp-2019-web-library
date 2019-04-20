@@ -1,7 +1,8 @@
 /* eslint new-cap: "off", global-require: "off" */
+const _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Order', {
+    let Order = sequelize.define('Order', {
         id: {
             type: DataTypes.INTEGER,
             field: 'id',
@@ -9,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        userId: {
+        username: {
             type: DataTypes.STRING(100),
-            field: 'user_id',
+            field: 'username',
             allowNull: false,
             references: {
                 model: 'user',
@@ -25,6 +26,22 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'order',
         timestamps: false
     });
+
+    Order.prototype.toExpandedJSON = function() {
+        return {
+            id: this.id,
+            username: this.username,
+            Books: _.map(this.OrderBooks, (val) => {
+                return {
+                    isbn: val.bookIsbn,
+                    quantity: val.quantity,
+                    name: val.RelatedBookIsbn.name
+                }
+            })
+        };
+    };
+
+    return Order;
 };
 
 module.exports.initRelations = () => {
@@ -37,7 +54,7 @@ module.exports.initRelations = () => {
     const Book = model.Book;
 
     Order.hasMany(Orderbook, {
-        as: 'BookOrderIdFkeys',
+        as: 'OrderBooks',
         foreignKey: 'order_id',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
@@ -45,18 +62,48 @@ module.exports.initRelations = () => {
 
     Order.belongsTo(User, {
         as: 'User',
-        foreignKey: 'user_id',
+        foreignKey: 'username',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
 
     Order.belongsToMany(Book, {
-        as: 'OrderbookBookIsbns',
+        as: 'Books',
         through: Orderbook,
         foreignKey: 'order_id',
         otherKey: 'book_isbn',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
+
+    Order.getOrder = function(id) {
+        return Order.findByPk(id, {
+            include: [
+                {
+                    model: Orderbook,
+                    as: 'OrderBooks',
+                    include: [
+                        {
+                            model: Book,
+                            as: 'RelatedBookIsbn'
+                        }
+                    ]
+                }
+            ]
+        })
+    };
+
+    Order.addOrder = function(username, books) {
+        return Order.create({username: username})
+            .then(order =>
+                Promise.all([order, Orderbook.bulkCreate(
+                    _.map(books, (quantity, isbn) => ({
+                        orderId: order.id,
+                        bookIsbn: isbn,
+                        quantity: quantity
+                    }))
+                )
+            ])).then(r => r[0]);
+    }
 
 };

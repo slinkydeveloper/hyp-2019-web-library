@@ -19,6 +19,11 @@ module.exports = (app, validator) => {
                 {
                     model: model.Author,
                     as: 'Author'
+                },
+                {
+                    model: model.Book,
+                    as: 'Related',
+                    attributes: ['isbn', 'name']
                 }
             ]
         }).then(

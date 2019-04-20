@@ -21,6 +21,7 @@ function init(sequelize) {
     model.Reservationbook = sequelize.import('./definition/reservationbook.js');
     model.Theme = sequelize.import('./definition/theme.js');
     model.User = sequelize.import('./definition/user.js');
+    model.RelatedBook = sequelize.import('./definition/relatedbook.js');
 
     // All models are initialized. Now connect them with relations.
     require('./definition/author.js').initRelations();
@@ -33,6 +34,7 @@ function init(sequelize) {
     require('./definition/reservationbook.js').initRelations();
     require('./definition/theme.js').initRelations();
     require('./definition/user.js').initRelations();
+    require('./definition/relatedbook.js').initRelations();
     return model;
 }
 

@@ -272,12 +272,18 @@ paths:
       operationId: getBookEvents
       summary: Get bookEvents
       parameters:
-        - name: onlyThisMonth
+        - name: from
           in: query
           required: false
           schema: 
-            type: boolean
-            default: false
+            type: string
+            format: date
+        - name: to
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
       responses:
         200:
           description: OK
@@ -407,7 +413,9 @@ components:
       properties:
         id:
           type: string
-        books:
+        username:
+          type: string
+        Books:
           type: array
           items:
             allOf:
@@ -480,11 +488,15 @@ components:
               $ref: "#/components/schemas/Theme"
             BookEvent:
               $ref: "#/components/schemas/BookEvent"
+            Related:
+              type: array
+              items:
+                $ref: "#/components/schemas/ISBN"
     ExpandedBookEvent:
       allOf:
         - $ref: "#/components/schemas/BookEvent"
         - properties:
-            book:
+            Book:
               $ref: "#/components/schemas/Book"
     BookQuantitiesMap:
       type: object

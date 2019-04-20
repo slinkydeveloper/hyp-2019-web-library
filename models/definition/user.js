@@ -62,14 +62,14 @@ module.exports.initRelations = () => {
 
     User.hasMany(Order, {
         as: 'Orders',
-        foreignKey: 'user_id',
+        foreignKey: 'username',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
 
     User.hasMany(Reservation, {
         as: 'Reservations',
-        foreignKey: 'user_id',
+        foreignKey: 'username',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });

@@ -1,7 +1,8 @@
 /* eslint new-cap: "off", global-require: "off" */
+const _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Reservation', {
+    let Reservation = sequelize.define('Reservation', {
         id: {
             type: DataTypes.INTEGER,
             field: 'id',
@@ -9,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        userId: {
+        username: {
             type: DataTypes.STRING(100),
-            field: 'user_id',
+            field: 'username',
             allowNull: false,
             references: {
                 model: 'user',
@@ -25,6 +26,22 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'reservation',
         timestamps: false
     });
+
+    Reservation.prototype.toExpandedJSON = function() {
+        return {
+            id: this.id,
+            username: this.username,
+            Books: _.map(this.ReservationBooks, (val) => {
+                return {
+                    isbn: val.bookIsbn,
+                    quantity: val.quantity,
+                    name: val.RelatedBookIsbn.name
+                }
+            })
+        };
+    };
+
+    return Reservation;
 };
 
 module.exports.initRelations = () => {
@@ -37,7 +54,7 @@ module.exports.initRelations = () => {
     const Book = model.Book;
 
     Reservation.hasMany(Reservationbook, {
-        as: 'BookReservationIdFkeys',
+        as: 'ReservationBooks',
         foreignKey: 'reservation_id',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
@@ -45,18 +62,48 @@ module.exports.initRelations = () => {
 
     Reservation.belongsTo(User, {
         as: 'User',
-        foreignKey: 'user_id',
+        foreignKey: 'username',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
 
     Reservation.belongsToMany(Book, {
-        as: 'ReservationbookBookIsbns',
+        as: 'Books',
         through: Reservationbook,
         foreignKey: 'reservation_id',
         otherKey: 'book_isbn',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
     });
+
+    Reservation.getReservation = function(id) {
+        return Reservation.findByPk(id, {
+            include: [
+                {
+                    model: Reservationbook,
+                    as: 'ReservationBooks',
+                    include: [
+                        {
+                            model: Book,
+                            as: 'RelatedBookIsbn'
+                        }
+                    ]
+                }
+            ]
+        })
+    };
+
+    Reservation.addReservation = function(username, books) {
+        return Reservation.create({username: username})
+            .then(reservation =>
+                Promise.all([reservation, Reservationbook.bulkCreate(
+                    _.map(books, (quantity, isbn) => ({
+                        reservationId: reservation.id,
+                        bookIsbn: isbn,
+                        quantity: quantity
+                    }))
+                )
+                ])).then(r => r[0]);
+    }
 
 };

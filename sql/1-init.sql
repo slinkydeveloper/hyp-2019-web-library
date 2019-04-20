@@ -26,7 +26,8 @@ CREATE TABLE IF NOT EXISTS library.Author (
 CREATE TABLE IF NOT EXISTS library.BookEvent (
     id SERIAL UNIQUE NOT NULL PRIMARY KEY,
     location VARCHAR(200) NOT NULL,
-    presenter VARCHAR(200) NOT NULL
+    presenter VARCHAR(200) NOT NULL,
+    date DATE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS library.Book (
@@ -38,14 +39,20 @@ CREATE TABLE IF NOT EXISTS library.Book (
     book_event INTEGER REFERENCES library.BookEvent(id)
 );
 
+CREATE TABLE IF NOT EXISTS library.RelatedBook (
+    book_id_1 CHAR(13) NOT NULL REFERENCES library.Book(isbn),
+    book_id_2 CHAR(13) NOT NULL REFERENCES library.Book(isbn),
+    PRIMARY KEY(book_id_1, book_id_2)
+);
+
 CREATE TABLE IF NOT EXISTS library.Reservation (
     id SERIAL UNIQUE NOT NULL PRIMARY KEY,
-    user_id VARCHAR(100) NOT NULL REFERENCES library.User(username)
+    username VARCHAR(100) NOT NULL REFERENCES library.User(username)
 );
 
 CREATE TABLE IF NOT EXISTS library.Order (
     id SERIAL UNIQUE NOT NULL PRIMARY KEY,
-    user_id VARCHAR(100) NOT NULL REFERENCES library.User(username)
+    username VARCHAR(100) NOT NULL REFERENCES library.User(username)
 );
 
 CREATE TABLE IF NOT EXISTS library.OrderBook (

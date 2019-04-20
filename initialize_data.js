@@ -18,12 +18,25 @@ function addBook(b) {
                 {
                     model: model.Author,
                     as: 'Author'
+                },
+                {
+                    model: model.Book,
+                    as: 'Related'
+                },
+                {
+                    model: model.Bookevent,
+                    as: 'BookEvent'
                 }
             ],
             validate: false
         }
     );
 }
+
+function addRelated(related) {
+    return model.RelatedBook.bulkCreate(related);
+}
+
 
 Promise.all([
     addBook({
@@ -50,9 +63,26 @@ Promise.all([
         },
         Author: {
             "name": "Stephen Hawking"
+        },
+        BookEvent: {
+            "location": "MIT",
+            "presenter": "Il professorone",
+            "date": "2019-04-14"
         }
     })
-]).then(res => {
-    console.log("Added books!")
+]).then(res => Promise.all([
+        addRelated([
+            {
+                "book_id_1": "9788893814508",
+                "book_id_2": "9789510394861"
+            },
+            {
+                "book_id_2": "9788893814508",
+                "book_id_1": "9789510394861"
+            }
+        ])
+    ])
+).then(res => {
+    console.log("Added books!");
     process.exit(0)
 }, console.error);

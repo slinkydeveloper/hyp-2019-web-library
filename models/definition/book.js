@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Book.prototype.toExpandedJSON = function() {
-        return _.pick(this.toJSON(), ['isbn', 'name', 'Author', 'Theme', 'Genre', 'BookEvent'])
+        return _.pick(this.toJSON(), ['isbn', 'name', 'Author', 'Theme', 'Genre', 'BookEvent', 'Related'])
     };
 
     Book.prototype.toSimpleJSON = function() {
@@ -90,6 +90,7 @@ module.exports.initRelations = () => {
     const Theme = model.Theme;
     const Order = model.Order;
     const Reservation = model.Reservation;
+    const RelatedBook = model.RelatedBook;
 
     Book.hasMany(Orderbook, {
         as: 'OrderbookBookIsbnFkeys',
@@ -113,7 +114,7 @@ module.exports.initRelations = () => {
     });
 
     Book.belongsTo(Bookevent, {
-        as: 'RelatedBookEvent',
+        as: 'BookEvent',
         foreignKey: 'book_event',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
@@ -149,6 +150,13 @@ module.exports.initRelations = () => {
         otherKey: 'reservation_id',
         onDelete: 'NO ACTION',
         onUpdate: 'NO ACTION'
+    });
+
+    Book.belongsToMany(Book, {
+        as: 'Related',
+        through: RelatedBook,
+        foreignKey: 'book_id_1',
+        otherKey: 'book_id_2'
     });
 
     Book.filteredBooks = function(author, genre, theme) {

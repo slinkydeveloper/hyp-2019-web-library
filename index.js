@@ -10,6 +10,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const session = require('express-session');
 
+sequelize.sync();
+
 //TODO reorder shit
 
 const openApiDocument = jsYaml.safeLoad(
@@ -41,6 +43,17 @@ app.use(session({
 // Mount api paths
 require('./paths/books')(app, validator);
 require('./paths/users')(app, validator);
+require('./paths/orders')(app, validator);
+require('./paths/reservations')(app, validator);
+require('./paths/bookevents')(app, validator);
+require('./paths/authors')(app, validator);
+require('./paths/genres')(app, validator);
+require('./paths/themes')(app, validator);
+
+app.post('/contact', validator.validate('post', '/contact'), (req, res) => {
+    fs.writeFile(__dirname + "/received_contacts/" + Date.now() + ".json", JSON.stringify(req.body), console.error);
+    res.status(200).end();
+});
 
 app.use('/', express.static('dist'));
 
