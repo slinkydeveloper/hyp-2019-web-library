@@ -5,7 +5,7 @@ const Op = Sequelize.Op;
 
 module.exports = (app, validator) => {
 
-    app.get('/genre/:genreId', validator.validate('get', '/genre/{genreId}'), (req, res, next) => {
+    app.get('/api/genre/:genreId', validator.validate('get', '/genre/{genreId}'), (req, res, next) => {
         model.Genre.findByPk(req.params.genreId).then(
             genre =>
                 _.isNull(genre) || _.isUndefined(genre) ?
@@ -15,7 +15,7 @@ module.exports = (app, validator) => {
         );
     });
 
-    app.get('/genre', (req, res, next) => {
+    app.get('/api/genre', (req, res, next) => {
         model.Genre.findAll()
             .then(genres => res.json(
                 _.chain(genres)

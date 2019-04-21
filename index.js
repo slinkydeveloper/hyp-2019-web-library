@@ -3,22 +3,23 @@ const express = require("express");
 const { OpenApiValidator } = require("express-openapi-validate/dist/index");
 const jsYaml = require("js-yaml");
 const Sequelize = require('sequelize');
-const config = require('./config/config.js');
-const sequelize = new Sequelize(config.db.url);
-require('./models/index.js').init(sequelize);
 const cors = require('cors');
 const morgan = require('morgan');
 const session = require('express-session');
 
+// Initialize the ORM
+const config = require('./config/config.js');
+const sequelize = new Sequelize(config.db.url);
+require('./models/index.js').init(sequelize);
 sequelize.sync();
 
-//TODO reorder shit
-
+// Load the spec
 const openApiDocument = jsYaml.safeLoad(
     fs.readFileSync("openapi.yaml", "utf-8")
 );
 const validator = new OpenApiValidator(openApiDocument);
 
+// Initialize express router
 const app = express();
 app.use(morgan('tiny'));
 app.use(cors());
@@ -29,7 +30,10 @@ app.get('/backend/spec.yaml', (req, res) => res.sendFile(__dirname + '/openapi.y
 // Mount backend docs and stuff
 app.get('/backend/main.html', (req, res) => res.redirect('/backend')); // Redirect main.html to index.html
 app.use('/backend', express.static('backend_public'));
+// Mount public stuff
+app.use('/public', express.static('public'));
 
+// Configure session handler
 app.use(session({
     store: new (require('connect-pg-simple')(session))({
         conString: config.db.url,
@@ -50,7 +54,8 @@ require('./paths/authors')(app, validator);
 require('./paths/genres')(app, validator);
 require('./paths/themes')(app, validator);
 
-app.post('/contact', validator.validate('post', '/contact'), (req, res) => {
+// Mount fancy contact path
+app.post('/api/contact', validator.validate('post', '/contact'), (req, res) => {
     fs.writeFile(__dirname + "/received_contacts/" + Date.now() + ".json", JSON.stringify(req.body), console.error);
     res.status(200).end();
 });
@@ -70,6 +75,7 @@ app.use((err, req, res, next) => {
     });
 });
 
+// Start the server
 const server = app.listen(process.env.PORT || 3000, () => {
     console.log("Listening on", server.address());
 });

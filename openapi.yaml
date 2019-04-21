@@ -4,6 +4,8 @@ info:
   title: Book store
   license:
     name: MIT
+servers:
+  - url: http://localhost:8080/api
 paths:
   /user:
     get:

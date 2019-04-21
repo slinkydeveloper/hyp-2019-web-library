@@ -5,7 +5,7 @@ const Op = Sequelize.Op;
 
 module.exports = (app, validator) => {
 
-    app.get('/author/:authorId', validator.validate('get', '/author/{authorId}'), (req, res, next) => {
+    app.get('/api/author/:authorId', validator.validate('get', '/author/{authorId}'), (req, res, next) => {
         model.Author.findByPk(req.params.authorId).then(
             author =>
                 _.isNull(author) || _.isUndefined(author) ?
@@ -15,7 +15,7 @@ module.exports = (app, validator) => {
         );
     });
 
-    app.get('/author', (req, res, next) => {
+    app.get('/api/author', (req, res, next) => {
         model.Author.findAll()
             .then(authors => res.json(
                 _.chain(authors)

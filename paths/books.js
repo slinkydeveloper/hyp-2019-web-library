@@ -4,7 +4,7 @@ const config = require('../config/config.js');
 
 module.exports = (app, validator) => {
 
-    app.get('/book/:bookId', validator.validate('get', '/book/{bookId}'), (req, res, next) => {
+    app.get('/api/book/:bookId', validator.validate('get', '/book/{bookId}'), (req, res, next) => {
         let bookId = req.params.bookId;
         model.Book.findByPk(bookId, {
             include: [
@@ -35,7 +35,7 @@ module.exports = (app, validator) => {
         );
     });
 
-    app.get('/book/best-seller', (req, res, next) => {
+    app.get('/api/book/best-seller', (req, res, next) => {
         model.Book.findAll({where:{isbn: config["best-seller"]}})
             .then(books => res.json(
                 _.chain(books.toJSON())
@@ -44,7 +44,7 @@ module.exports = (app, validator) => {
             ), next)
     });
 
-    app.get('/book/staff-picks', (req, res, next) => {
+    app.get('/api/book/staff-picks', (req, res, next) => {
         model.Book.findAll({where:{isbn: config["staff-picks"]}})
             .then(books => res.json(
                 _.chain(books.toJSON())
@@ -53,7 +53,7 @@ module.exports = (app, validator) => {
             ), next)
     });
 
-    app.get('/book', validator.validate('get', '/book'), (req, res, next) => {
+    app.get('/api/book', validator.validate('get', '/book'), (req, res, next) => {
         model.Book.filteredBooks(_.get(req, 'query.author'), _.get(req, 'query.genre'), _.get(req, 'query.theme'))
             .then(books => res.json(
                 _.chain(books)

@@ -5,7 +5,7 @@ const Op = Sequelize.Op;
 
 module.exports = (app, validator) => {
 
-    app.get('/bookEvent/:bookEventId', validator.validate('get', '/bookEvent/{bookEventId}'), (req, res, next) => {
+    app.get('/api/bookEvent/:bookEventId', validator.validate('get', '/bookEvent/{bookEventId}'), (req, res, next) => {
         let bookEventId = req.params.bookEventId;
         model.Bookevent.findByPk(bookEventId, {
             include: [
@@ -23,7 +23,7 @@ module.exports = (app, validator) => {
         );
     });
 
-    app.get('/bookEvent', (req, res, next) => {
+    app.get('/api/bookEvent', (req, res, next) => {
         let query = {};
         if (_.has(req.query, 'from') && _.has(req.query, 'to')) {
             query = {

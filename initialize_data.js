@@ -37,9 +37,8 @@ function addRelated(related) {
     return model.RelatedBook.bulkCreate(related);
 }
 
-
-Promise.all([
-    addBook({
+async function start() {
+    await addBook({
         isbn: "9788893814508",
         name: "Harry Potter e la pietra filosofale",
         Genre: {
@@ -51,8 +50,8 @@ Promise.all([
         Author: {
             "name": "J.K. Rowling"
         }
-    }),
-    addBook({
+    });
+    await addBook({
         isbn: "9789510394861",
         name: "Dal big bang ai buchi neri. Breve storia del tempo",
         Genre: {
@@ -69,20 +68,20 @@ Promise.all([
             "presenter": "Il professorone",
             "date": "2019-04-14"
         }
-    })
-]).then(res => Promise.all([
-        addRelated([
-            {
-                "book_id_1": "9788893814508",
-                "book_id_2": "9789510394861"
-            },
-            {
-                "book_id_2": "9788893814508",
-                "book_id_1": "9789510394861"
-            }
-        ])
-    ])
-).then(res => {
+    });
+    await addRelated([
+        {
+            "book_id_1": "9788893814508",
+            "book_id_2": "9789510394861"
+        },
+        {
+            "book_id_2": "9788893814508",
+            "book_id_1": "9789510394861"
+        }
+    ]);
+}
+
+start().then(res => {
     console.log("Added books!");
     process.exit(0)
 }, console.error);

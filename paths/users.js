@@ -6,7 +6,7 @@ const loggedCheckMiddleware = require('../utils/logged_check');
 
 module.exports = (app, validator) => {
 
-    app.post('/user/register', validator.validate('post', '/user/register'), (req, res, next) => {
+    app.post('/api/user/register', validator.validate('post', '/user/register'), (req, res, next) => {
         const newUser = {
             username: req.body.username,
             mail: req.body.mail,
@@ -18,7 +18,7 @@ module.exports = (app, validator) => {
         }, next);
     });
 
-    app.post('/user/login', validator.validate('post', '/user/login'), (req, res, next) => {
+    app.post('/api/user/login', validator.validate('post', '/user/login'), (req, res, next) => {
         model.User.loginUser(req.body.usernameOrMail, doSHA512(req.body.password)).then(user => {
             if (_.isNull(user))
                 res.status(404).end();
@@ -29,7 +29,7 @@ module.exports = (app, validator) => {
         }, next);
     });
 
-    app.get('/user', loggedCheckMiddleware, validator.validate('get', '/user'), (req, res, next) => {
+    app.get('/api/user', loggedCheckMiddleware, validator.validate('get', '/user'), (req, res, next) => {
         model.User.findByPk(req.session.username, {
             include: [
                 {
