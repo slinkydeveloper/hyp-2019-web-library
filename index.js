@@ -34,7 +34,7 @@ app.use('/backend', express.static('backend_public'));
 app.use('/public', express.static('public'));
 
 // Configure session handler
-app.use(session({
+app.use('/api', session({
     store: new (require('connect-pg-simple')(session))({
         conString: config.db.url,
         schemaName: 'library'

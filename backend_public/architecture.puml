@@ -1,0 +1,48 @@
+@startuml
+
+[Frontend] as FE
+
+node "Heroku deployment" {
+
+    interface "PGSQL Protocol" as pgprotocol
+    database Postgres
+
+    pgprotocol -down- Postgres
+
+    package "Backend" {
+
+        interface HTTP
+
+        [/] as publicendpoint
+        rectangle "Folder /dist" as distfolder
+        publicendpoint -down-> distfolder
+        HTTP -- publicendpoint
+
+        [/backend] as backendendpoint
+        rectangle "Folder /backend_public" as backendfolder
+        backendendpoint -down-> backendfolder
+        HTTP -- backendendpoint
+
+        [/api] as apiendpoint
+        rectangle "Session manager" as sessionmanager
+        rectangle "Request validator" as requestvalidator
+        note left of requestvalidator: For some\nrequests this\nis not necessary
+        rectangle "API handlers" as apihandlers
+        note left of apihandlers: Where business logic reside
+        rectangle "ORM models" as orm
+        note left of orm: Built with Sequelize.js
+
+        apiendpoint -down-> sessionmanager
+        sessionmanager -down-> requestvalidator
+        requestvalidator -down-> apihandlers
+        apihandlers -down-> orm
+        HTTP -- apiendpoint
+
+        sessionmanager -- pgprotocol
+        orm -- pgprotocol
+
+        FE <-left-> HTTP
+    }
+}
+
+@enduml

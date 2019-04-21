@@ -6,28 +6,29 @@
 
 | Member n. | Role | First name | Last Name | Matricola | Email address |
 | --------- | ------------- | ---------- | --------- | --------- | --------------- |
-| 1 | administrator | Foo | FooL | 123456 | foo@example.com |
-| 2 | member | Bar | BarL | 78982 | bar@example.com |
-| ...... | | | | | |
+| 1 | Backend | Francesco | Guardiani | 867616 | francesco.guardiani@mail.polimi.it |
+| 2 | Frontend | Miranda | Mucignat | 846693 | miranda.mucignat@mail.polimi.it |
 
 ## Links to other deliverables
 
 - Deliverable D0: the web application is accessible at
-[this address](https://example.com).
+[this address](https://hyp-2019-library.herokuapp.com).
 - Deliverable D2: the YAML or JSON file containing the specification of the app
-API can be found at [this address](https://example.com/backend/spec.yaml).
+API can be found at [this address](https://hyp-2019-library.herokuapp.com/backend/spec.yaml).
 - Deliverable D3: the SwaggerUI page of the same API is available at
-[this address](https://example.com/backend/swaggerui).
+[this address](https://hyp-2019-library.herokuapp.com/backend/swaggerui).
 - Deliverable D4: the source code of D0 is available as a zip file at
-[this address](https://example.com/backend/app.zip).
+[this address](https://hyp-2019-library.herokuapp.com/backend/app.zip).
 - Deliverable D5: the address of the online source control repository is
-available [this address](https://examplegit.com). We hereby declare that this
+available [this address](https://github.com/slinkydeveloper/hyp-2019-web-library). We hereby declare that this
 is a private repository and, upon request, we will give access to the
 instructors.
 
 ## Specification
 
 ### Web Architecture
+
+[](architecture.puml ':include :type=code plantuml')
 
 Describe here, with a diagram, the components of your web application and how they interact. Highlight which parts belong to the application layer, data layer
 or presentation layer. How did you ensure that HTML is not rendered server side?
@@ -36,11 +37,15 @@ or presentation layer. How did you ensure that HTML is not rendered server side?
 
 #### REST compliance
 
+
 Describe here to what extent did you follow REST principles and what are the
 reasons for which you might have decided to diverge. Note, you must not describe
 the whole API here, just the design decisions.
 
 #### OpenAPI Resource models
+
+I introduced the following models:
+
 
 Describe here synthetically, which models you have introduced for resources.
 
@@ -58,15 +63,19 @@ of the application.
 
 ### Discussion
 
-Describe here:
-
-- How did you make sure your web application adheres to the provided OpenAPI
+> How did you make sure your web application adheres to the provided OpenAPI
 specification?
-- Why do you think your web application adheres to common practices to partition
+
+We strictly followed the API Contract Driven Development: We first designed the contract and then we implemented the API.
+I used the 
+
+> Why do you think your web application adheres to common practices to partition
 the web application (static assets vs. application data)
-- Describe synthetically why and how did you manage session state, what are the
+
+> Describe synthetically why and how did you manage session state, what are the
 state change triggering actions (e.g., POST to login etc..).
-- Which technology did you use (relational or a no-SQL database) for managing the data model?
+
+> Which technology did you use (relational or a no-SQL database) for managing the data model?
 
 ## Other information
 
@@ -79,6 +88,7 @@ group, e.g.:
 - Bar worked on ....
 
 ### Analysis of existing API
+
 
 Describe here if you have found relevant APIs that have inspired the OpenAPI
 specification and why (at least two).
