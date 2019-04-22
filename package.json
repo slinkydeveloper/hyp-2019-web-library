@@ -20,7 +20,6 @@
   "homepage": "https://github.com/slinkydeveloper/hyp-2019-web-library#readme",
   "description": "",
   "dependencies": {
-    "bcrypt": "^3.0.6",
     "connect-pg-simple": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
