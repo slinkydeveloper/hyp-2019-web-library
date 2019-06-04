@@ -1,0 +1,338 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.divisor{
+    padding-top: 50px;
+}
+
+.space_menu{
+    margin-right: 10px;
+}
+
+.vertical_and_horizontal_translation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.padding_top{
+    padding-top: 15%;
+}
+
+.margin_top{
+    margin-top: 20%;
+}
+
+.maxWidth{
+    max-width: 250px;
+}
+
+.padding_bottom{
+    padding-bottom: 20px;
+}
+
+.imgReservation{
+    width: 170px;
+    height: 250px;
+}
+
+.bottom_position_buy{
+    position: absolute;
+    bottom: 0;
+}
+
+.bottom_position_delete{
+    position: absolute;
+    bottom: 0;
+    left: 120px;
+}
+
+.margin_top_pixel{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.margin_bottom_pixel{
+    margin-bottom: 5px;
+}
+
+.margin_top_h5{
+    margin-top: 10px;
+}
+.jumbotron_info{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    height: 200px
+}
+
+.margin_top_event{
+    margin-top: 20px;
+}
+
+.margin_top_event1{
+    margin-top: 30px;
+}
+
+
+.map-container-6{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-container-6 iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+/*TODO addare questa classeeeeeeeee*/
+.container {
+    overflow: hidden;
+}
+/*TODO addare questa classeeeeeeeee*/
+.filterDiv {
+    display: none; /* Hidden by default */
+}
+/*TODO addare questa classeeeeeeeee*/
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+}
+/*  QUESTE CLASSI SONO DI "BELLEZZA"*/
+/* Style the buttons */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropbtn:hover, .dropbtn:focus {
+}
+
+#myInput {
+
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #000;
+    text-decoration: none;
+    background: #fff;
+}
+
+.for_dropdown_in_container{
+    overflow: inherit;
+}
+
+.inner_color_link{
+    color: #fff;
+}
+
+.map-container-5{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-container-5 iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.margin_right_all_event{
+    margin-right: 10px ;
+}
+
+.margin_left_all_event{
+    margin-right: 10px ;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 400px) {
+    .square {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+
+    .buttons_groups{
+        margin: 50px 0;
+    }
+
+    .title_margin{
+        margin-top: 10px;
+    }
+
+    .margin_cOs{
+        margin-top: 170px;
+    }
+
+    .margin_cUs{
+        margin-top: 230px;
+    }
+
+    .margin_oAs{
+        margin-top: 390px;
+    }
+
+    .margin_pIfS{
+        margin-top: 600px;
+    }
+
+    .margin_sUp{
+        margin-top: 100px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+/*@media (min-width: 400px) {*/
+/*    .square {*/
+/*        width: 200px;*/
+/*        height: 200px;*/
+/*        background-color: red;*/
+/*    }*/
+/*}*/
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 768px) {
+    .square {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+    }
+
+    .margin_button_acquista{
+        margin: 0 250px;
+    }
+
+    .margin_button_rimuovi{
+        margin: 0 230px;
+    }
+
+
+    .quantita_dropdown {
+        margin: 30px 0;
+    }
+
+    .size_body_70{
+        width: 70%;
+    }
+
+    .size_body_30{
+        width: 30%;
+        float: left;  height: auto; margin-top: 30px;
+    }
+
+
+    .row_jumbo{
+        margin-left: 10px
+    }
+
+    .margin_cOs{
+        margin-top: 90px;
+    }
+
+    .margin_cUs{
+        margin-top: 300px;
+    }
+
+    .margin_event{
+        margin-top: 30px
+    }
+
+    .margin_login{
+        margin-top: 50px ;
+    }
+
+    .margin_oAs{
+        margin-top: 390px;
+    }
+
+    .margin_pIfS{
+        margin-top: 450px;
+    }
+
+    .margin_sUp{
+        margin-top: 90px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1400px) {
+    .square {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+    }
+
+    .margin_button{
+        margin: 0 450px;
+    }
+
+    .size_body_70{
+        width: 70%;
+    }
+
+    .size_body_30{
+        width: 30%;
+        float: left;  height: auto; margin-top: 30px;
+
+    }
+
+    .row_jumbo{
+        margin-left: 10px
+    }
+
+    .margin_event{
+        margin-top: 30px
+    }
+
+    .margin_oAs{
+        margin-top: 390px;
+    }
+
+    .margin_pIfS{
+        margin-top: 450px;
+    }
+
+    .margin_sUp{
+        margin-top: 90px;
+    }
+}

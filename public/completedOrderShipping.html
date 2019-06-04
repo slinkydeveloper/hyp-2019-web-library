@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>completed order</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheetPages.css" type="text/css">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- TODO ricorda di aggiornarla sempre -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+    <a class="navbar-brand" href="#">Libri per tutti</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="firstPage.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="firstPage.html">Libri</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Autori
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="allAuthors.html">Tutti gli autori</a>
+                    <a class="dropdown-item" href="author.html">Autore 1</a>
+                    <a class="dropdown-item" href="author.html">Autore 2</a>
+                    <a class="dropdown-item" href="author.html">Autore 3</a>
+                    <a class="dropdown-item" href="author.html">Autore 4</a>
+                    <a class="dropdown-item" href="author.html">Autore 5</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="allEvent.html">Eventi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contactUs.html">Contattaci</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Carrello</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usability
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Accessibility</a>
+                    <a class="dropdown-item" href="#">Structure</a>
+                    <a class="dropdown-item" href="#">Responsivity</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
+            <li><a href="login.html"> Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="container  margin_top vertical_and_horizontal_translation">
+    <div class="jumbotron margin_cOs">
+        <p class="text-center"><i class="fa fa-check-circle fa-4x" aria-hidden="true"></i></p>
+        <h3 class="text-center">Il tuo ordine è stato completato con successo!</h3>
+    <div class="jumbotron">
+        <h4>Riepilogo</h4>
+        <p>Ordine inviato all'indirizzo : Via Verrocchio 30, Mi 29120</p>
+        <p>Arriverà il 30/06/2019</p>
+        <p>Metodo di pagamento : carta prepagata ****1234</p>
+    </div>
+        <button type="submit" class="btn btn-primary"><a href="firstPage.html" class="inner_color_link">Home</a></button>
+    </div>
+</div>
+</body>
+</html>

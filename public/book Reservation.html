@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Reservation and Shopping Card</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheetPages.css" type="text/css">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Libri per tutti</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="firstPage.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="firstPage.html">Libri</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Autori
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="allAuthors.html">Tutti gli autori</a>
+                    <a class="dropdown-item" href="author.html">Autore 1</a>
+                    <a class="dropdown-item" href="author.html">Autore 2</a>
+                    <a class="dropdown-item" href="author.html">Autore 3</a>
+                    <a class="dropdown-item" href="author.html">Autore 4</a>
+                    <a class="dropdown-item" href="author.html">Autore 5</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="allEvent.html">Eventi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contactUs.html">Contattaci</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="book Reservation.html"><i class="fa fa-shopping-cart"
+                                                                    aria-hidden="true"></i> Carrello</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Usability
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Accessibility</a>
+                    <a class="dropdown-item" href="#">Structure</a>
+                    <a class="dropdown-item" href="#">Responsivity</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
+            <li><a href="login.html"> Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div style="float: left;" class="size_body_70">
+        <div style="margin-top: 30px">
+            <div class="jumbotron ">
+                <div class="row no-gutters">
+
+                    <div class="col-3  col-md-6 col-lg-4 ">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81-rFz8tlcL.jpg"
+                             class="float-left imgReservation" alt="...">
+                    </div>
+
+                    <div class="col-12   col-md-6 col-lg-4 title_margin">
+                        <h3>Titolo del Libro</h3>
+                        <h4><a href="#">Autore</a></h4>
+                        <p>paragrafo a caso sulla descrizione massimo una riga </p>
+                        <p>14.50£</p>
+                    </div>
+
+                    <div class="col-12  col-md-12 col-lg-4 buttons_groups">
+                        <div class="dropdown quantita_dropdown">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quantità
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">1</a>
+                                <a class="dropdown-item" href="#">2</a>
+                                <a class="dropdown-item" href="#">3</a>
+                                <a class="dropdown-item" href="#">4</a>
+                                <a class="dropdown-item" href="#">5</a>
+                                <a class="dropdown-item" href="#">6</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                        <button type="button"
+                                class="btn btn-outline-primary bottom_position_buy margin_button margin_button_acquista">
+                            Acquista
+                        </button>
+                        <button type="button"
+                                class="btn btn-outline-danger bottom_position_delete margin_button margin_button_rimuovi">
+                            Rimuovi
+                        </button>
+                    </div>
+
+                </div>
+                <div class="row no-gutters padding_top">
+
+                    <div class="col-3  col-md-6 col-lg-4 ">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81-rFz8tlcL.jpg"
+                             class="float-left imgReservation" alt="...">
+                    </div>
+
+                    <div class="col-12   col-md-6 col-lg-4 title_margin">
+                        <h3>Titolo del Libro</h3>
+                        <h4><a href="#">Autore</a></h4>
+                        <p>paragrafo a caso sulla descrizione massimo una riga </p>
+                        <p>14.50£</p>
+                    </div>
+
+                    <div class="col-12  col-md-12 col-lg-4 buttons_groups">
+                        <div class="dropdown quantita_dropdown">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quantità
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">1</a>
+                                <a class="dropdown-item" href="#">2</a>
+                                <a class="dropdown-item" href="#">3</a>
+                                <a class="dropdown-item" href="#">4</a>
+                                <a class="dropdown-item" href="#">5</a>
+                                <a class="dropdown-item" href="#">6</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                        <button type="button"
+                                class="btn btn-outline-primary bottom_position_buy margin_button margin_button_acquista">
+                            Acquista
+                        </button>
+                        <button type="button"
+                                class="btn btn-outline-danger bottom_position_delete margin_button margin_button_rimuovi">
+                            Rimuovi
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--        <div class="jumbotron ">-->
+        <!--            <div class="row">-->
+        <!--                <div class="col-3 col-sm-3  col-md-3 col-lg-3 " >-->
+        <!--                    <img src="https://images-na.ssl-images-amazon.com/images/I/81-rFz8tlcL.jpg" class="rounded float-left imgReservation" alt="...">-->
+        <!--                </div>-->
+        <!--                <div class="col-3 col-sm-3 col-md-6 col-lg-6" >-->
+        <!--                    <h3>Titolo del Libro</h3>-->
+        <!--                    <h4><a href="#">Autore</a> </h4>-->
+        <!--                    <p>paragrafo a caso sulla descrizione massimo una riga </p>-->
+        <!--                    <h4>14.50£</h4>-->
+        <!--                    <button type="button" class="btn btn-outline-primary bottom_position_buy">Acquista</button>-->
+        <!--                    <button type="button" class="btn btn-outline-danger bottom_position_delete">Rimuovi</button>-->
+        <!--                </div>-->
+        <!--                <div class="col-3 col-sm-3  col-md-1 col-lg-1" >-->
+        <!--                    <div class="dropdown">-->
+        <!--                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+        <!--                            Quantità-->
+        <!--                        </button>-->
+        <!--                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+        <!--                            <a class="dropdown-item" href="#">1</a>-->
+        <!--                            <a class="dropdown-item" href="#">2</a>-->
+        <!--                            <a class="dropdown-item" href="#">3</a>-->
+        <!--                            <a class="dropdown-item" href="#">4</a>-->
+        <!--                            <a class="dropdown-item" href="#">5</a>-->
+        <!--                            <a class="dropdown-item" href="#">6</a>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+    </div>
+    <div class="container size_body_30" >
+        <div class="row jumbotron row_jumbo">
+            <div class="col-3 col-lg-3 col-md-3 col-sm-3">
+                <h4>Totale</h4>
+                <p>Subtotale</p>
+                <p>Spedizione</p>
+            </div>
+            <div class="col-9 col-lg-9 col-md-9 col-sm-9 text-right">
+                <h4>40£</h4>
+                <p>33.50£</p>
+                <p>6.50£</p>
+            </div>
+            <div class="col-9 col-lg-9 col-md-9 col-sm-9 text-right">
+                <button type="button" class="btn btn-info"><a href="orderingAndShippingInformation.html "
+                                                              class="inner_color_link" n>Acquista</a></button>
+            </div>
+        </div>
+        <div class="row jumbotron " style="margin-left: 10px">
+            <h4><i class="fa fa-credit-card" aria-hidden="true"></i></h4>
+            <h4>Modalità di pagamento disponibili</h4>
+            <div>
+                <img class="img-thumbnail" src="https://www.track-vr.it/uploads/images/pagamenti.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
