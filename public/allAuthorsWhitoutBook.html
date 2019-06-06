@@ -90,78 +90,17 @@
         <div class="row no-gutters">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
-                    <div class="jumbotron">
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-6">
-                                <a href="author.html">
-                                    <img class="img-thumbnail"
-                                         src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                                </a>
-                                <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >Autore 1</a></h4>
-                                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                                <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6">
-                                <a href="author.html">
-                                    <img class="img-thumbnail"
-                                         src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                                </a>
-                                <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >Autore 1</a></h4>
-                                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                                <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6">
-                                <a href="author.html">
-                                    <img class="img-thumbnail"
-                                         src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                                </a>
-                                <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >Autore 1</a></h4>
-                                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                                <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6">
-                                <a href="author.html">
-                                    <img class="img-thumbnail"
-                                         src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                                </a>
-                                <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >Autore 1</a></h4>
-                                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                                <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-6">
-                                <a href="author.html">
-                                    <img class="img-thumbnail"
-                                         src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                                </a>
-                                <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >Autore 1</a></h4>
-                                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                                <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>
-                            </div>
-                        </div>
-<!--                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">-->
-<!--                            <a href="author.html">-->
-<!--                                <img class="img-thumbnail"-->
-<!--                                     src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">-->
-<!--                            </a>-->
-<!--                            <div class="col-6 col-sm-6 col-md-6 col-lg-6">-->
-<!--                                <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >Autore 1</a></h4>-->
-<!--                                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>-->
-<!--                                <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                    </div>
-            </div>
+                <div class="jumbotron" >
+                    <div class="row" id="containerAutori">
 
+                    </div>
+
+                </div>
+            </div>
 
 
         </div>
     </div>
-
-</div>
-</div>
-
-
-<div id="containerAutori">
 
 </div>
 
@@ -175,26 +114,25 @@
         type: "GET",
         dataType: "json",
         url: "https://hyp-2019-library.herokuapp.com/api/author",
-        data: data, // sto mandando
-        success: function(data) { // sto ricevendo
+        //data: data, // sto mandando
+        success: function (data) { // sto ricevendo
 
             for (i = 0; i < data.length; i++) {
-
-
 
 
                 // backtick ` variabili tra ${variabile}
                 $('#containerAutori').append(`
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <a href="author.html">
+                                <img class="img-thumbnail"
+                                     src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
+                            </a>
                             <h4 class="margin_top_h5"><a href="author.html" class="text-dark" >${data[i]['name']}</a></h4>
-                        <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                        <p class="margin_top_pixel margin_bottom_pixel">Tematiche</p>
                     </div>
                 `);
 
                 console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
             }
-
 
 
         }
