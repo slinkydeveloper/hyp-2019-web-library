@@ -4,18 +4,25 @@
     <title>Tutti gli eventi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheetPages.css" type="text/css">
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Libri per tutti</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -28,7 +35,8 @@
                 <a class="nav-link" href="firstPage.html">Libri</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Autori
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,10 +55,12 @@
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Carrello</a>
+                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart"
+                                                                      aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
                     Usability
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -76,37 +86,29 @@
         <div class="col-md-12">
 
             <div class="jumbotron">
-                <h1 class="display-4"><i class="fa fa-calendar-o" aria-hidden="true"></i>  Qui puoi vedere gli eventi presenti sul nostro sito</h1>
+                <h1 class="display-4"><i class="fa fa-calendar-o" aria-hidden="true"></i> Qui puoi vedere gli eventi
+                    presenti sul nostro sito</h1>
                 <p class="lead">Ogni evento ha una sua pagina così potrai trovare tutte le informazioni che cerchi</p>
             </div>
         </div>
     </div>
 
 
-
-
     <!--Grid row-->
     <div class="row no-gutters">
         <!--Grid column-->
         <div class="col-lg-5 col-md-5 col-sm-6 mb-4  ">
-            <div class="jumbotron ">
+            <div class="jumbotron " id="allEventId">
                 <!--Card-->
                 <div>
                     <!--Card image-->
                     <div class="view view-cascade gradient-card-header peach-gradient">
-                        <h5 class="mb-0 text-center">Evento 1</h5>
+
                     </div>
                     <!--/Card image-->
 
                     <!--Card content-->
                     <div class="card-body card-body-cascade">
-                        <p>Relatori a caso</p>
-                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione. I primi tipi sono la descrizione
-                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona viene descritta in modo impersonale,
-                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La descrizione soggettiva, invece, è
-                            connotativa</p>
-
-                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
 
                     </div>
                     <!--/.Card content-->
@@ -129,12 +131,16 @@
                     <!--Card content-->
                     <div class="card-body card-body-cascade">
                         <p>Relatori a caso</p>
-                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione. I primi tipi sono la descrizione
-                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona viene descritta in modo impersonale,
-                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La descrizione soggettiva, invece, è
+                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione.
+                            I primi tipi sono la descrizione
+                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona
+                            viene descritta in modo impersonale,
+                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La
+                            descrizione soggettiva, invece, è
                             connotativa</p>
 
-                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
+                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda
+                            nei dettagli l'evento</a></button>
 
                     </div>
                     <!--/.Card content-->
@@ -157,12 +163,16 @@
                     <!--Card content-->
                     <div class="card-body card-body-cascade">
                         <p>Relatori a caso</p>
-                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione. I primi tipi sono la descrizione
-                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona viene descritta in modo impersonale,
-                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La descrizione soggettiva, invece, è
+                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione.
+                            I primi tipi sono la descrizione
+                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona
+                            viene descritta in modo impersonale,
+                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La
+                            descrizione soggettiva, invece, è
                             connotativa</p>
 
-                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
+                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda
+                            nei dettagli l'evento</a></button>
 
                     </div>
                     <!--/.Card content-->
@@ -185,12 +195,16 @@
                     <!--Card content-->
                     <div class="card-body card-body-cascade">
                         <p>Relatori a caso</p>
-                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione. I primi tipi sono la descrizione
-                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona viene descritta in modo impersonale,
-                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La descrizione soggettiva, invece, è
+                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione.
+                            I primi tipi sono la descrizione
+                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona
+                            viene descritta in modo impersonale,
+                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La
+                            descrizione soggettiva, invece, è
                             connotativa</p>
 
-                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
+                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda
+                            nei dettagli l'evento</a></button>
 
                     </div>
                     <!--/.Card content-->
@@ -213,12 +227,16 @@
                     <!--Card content-->
                     <div class="card-body card-body-cascade">
                         <p>Relatori a caso</p>
-                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione. I primi tipi sono la descrizione
-                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona viene descritta in modo impersonale,
-                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La descrizione soggettiva, invece, è
+                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione.
+                            I primi tipi sono la descrizione
+                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona
+                            viene descritta in modo impersonale,
+                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La
+                            descrizione soggettiva, invece, è
                             connotativa</p>
 
-                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
+                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda
+                            nei dettagli l'evento</a></button>
 
                     </div>
                     <!--/.Card content-->
@@ -232,6 +250,51 @@
 
 
 <script src="filter.js"></script>
+
+<script>
+
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/bookEvent",
+        //data: data, // sto mandando
+        success: function (data) { // sto ricevendo
+
+            for (i = 0; i < data.length; i++) {
+
+
+                // backtick ` variabili tra ${variabile}
+                // per chiamare i dati  ${data[i]['name']}
+                $('#allEventId').append(`
+                    <div>
+                    <!--Card image-->
+                    <div class="view view-cascade gradient-card-header peach-gradient" >
+                    <h5 class="mb-0 text-center">Evento n: ${data[i]['id']}</h5>
+                    </div>
+                    <!--/Card image-->
+
+                    <!--Card content-->
+                    <div class="card-body card-body-cascade" >
+                    <p>Presentato da: ${data[i]['presenter']} </p>
+                        <p>Dove si svolgerà ? ${data[i]['location']}</p>
+                        <p>Data: ${data[i]['date']}</p>
+                         <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+
+                `);
+                //
+                // console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
+            }
+
+
+        }
+        })
+            ;
+</script>
 
 </body>
 </html>
