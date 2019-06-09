@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>fake sito</title>
-<!--    <link rel="stylesheet" type="text/css" href="bootstrap.css">-->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--    <link rel="stylesheet" type="text/css" href="bootstrap.css">-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheetPages.css" type="text/css">
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Libri per tutti</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -28,7 +33,8 @@
                 <a class="nav-link" href="firstPage.html">Libri</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Autori
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,10 +53,12 @@
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Carrello</a>
+                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart"
+                                                                      aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
                     Usability
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -69,77 +77,20 @@
     </div>
 </nav>
 
-<div class="container divisor for_dropdown_in_container" >
-    <div class="jumbotron">
+<div class="container divisor for_dropdown_in_container">
+    <div class="jumbotron" id="menuFilter">
 
         <h1>
             <i class="fa fa-book"></i>
             Galleria online di libri</h1>
         <p>qui puoi vedere, salvare e commentare i tuoi libri preferiti
         </p>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myBtnContainer" >
-            <button class="navbar-brand btn" onclick="filterSelection('all')">Tutti i libri</button>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" >
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <button class="btn" onclick="filterSelection('eventMonth')">Eventi del mese</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn" onclick="filterSelection('favoriteReadings')">Letture consigliate</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn" onclick="filterSelection('bestSellers')">Best sellers del mese</button>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000;">
-                            Temi
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <button class="btn dropdown-item" onclick="filterSelection('friendshipTheme')">Amicizia</button>
-                            <button class="btn dropdown-item" onclick="filterSelection('loveTheme')">Amore</button>
-                            <button class="btn dropdown-item" onclick="filterSelection('familyTheme')">Famiglia</button>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000;">
-                            Generi
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <button class="btn dropdown-item" onclick="filterSelection('litteraryGenre')">Letterario</button>
-                            <button class="btn dropdown-item" onclick="filterSelection('storicGenre')">Storico</button>
-                            <button class="btn dropdown-item" onclick="filterSelection('horrorGenre')">Horror</button>
-                            <button class="btn dropdown-item" onclick="filterSelection('horrorGenre')">Horror</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
     </div>
 </div>
 
-<div class="container" id="containerBookFirstPage">
-    <div class="row text-center" >
-        <div class="filterDiv eventMonth">
-            <div class="col-6 col-md-3 col-lg-3">
-                <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" >
-                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51rdksF61YL._SL500_.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p><h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-                <div ><a href="bookPage.html" >
-                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51rdksF61YL._SL500_.jpg">
-                </a>
-                </div>
-                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-                <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-            </div>
-        </div>
+<div class="container">
+    <div class="row text-center" id="containerBookFirstPage"><!--
         <div class="col-6 col-md-3 col-lg-3 filterDiv favoriteReadings">
             <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
             <div ><a href="bookPage.html" class="all">
@@ -202,14 +153,16 @@
             </div>
             <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
             <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
+        </div>-->
         <!--TODO qua finisce la row -->
     </div>
 </div>
 
-<script src="filter.js"></script>
 
 <script>
+
+
+    // Add active class to the current control button (highlight it)
 
 
     $.ajax({
@@ -223,25 +176,118 @@
 
 //TODO finire di collegare il db, riuscire a mettere tutti i libri nelle stesse righe
                 // backtick ` variabili tra ${variabile} --- ${data[i]['']}
-                $('#containerBookFirstPage').append(`
-            <div class="col-6 col-md-3 col-lg-3">
-                <h5 class="margin_top_h5"><a href="#" class="text-dark">${data[i]['name']}</a></h5>
-            <div ><a href="bookPage.html" >
-                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51rdksF61YL._SL500_.jpg">
+
+                $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3 filterDiv friendshipTheme">
+            <h5 class="margin_top_h5"><a href="#" class="text-dark">${data[i]['name']}</a></h5>
+            <div ><a href="bookPage.html" class="all">
+                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
             </a>
             </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">${data[i]['Author.id']}</a></p>
+            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
             <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-            </div>
+        </div>`);
 
-                `);
-
-                console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
             }
 
 
+            $('#menuFilter').append('<nav class="navbar navbar-expand-lg navbar-light bg-light" id="myBtnContainer" >\n' +
+                '            <button class="navbar-brand btn" onclick="filterSelection(\'all\')">Tutti i libri</button>\n' +
+                '            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n' +
+                '                <span class="navbar-toggler-icon"></span>\n' +
+                '            </button>\n' +
+                '\n' +
+                '            <div class="collapse navbar-collapse" >\n' +
+                '                <ul class="navbar-nav mr-auto">\n' +
+                '                    <li class="nav-item">\n' +
+                '                        <button class="btn" onclick="filterSelection(\'eventMonth\')">Eventi del mese</button>\n' +
+                '                    </li>\n' +
+                '                    <li class="nav-item">\n' +
+                '                        <button class="btn" onclick="filterSelection(\'favoriteReadings\')">Letture consigliate</button>\n' +
+                '                    </li>\n' +
+                '                    <li class="nav-item">\n' +
+                '                        <button class="btn" onclick="filterSelection(\'bestSellers\')">Best sellers del mese</button>\n' +
+                '                    </li>\n' +
+                '                    <li class="nav-item dropdown">\n' +
+                '                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000;">\n' +
+                '                            Temi\n' +
+                '                        </a>\n' +
+                '                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'friendshipTheme\')">Amicizia</button>\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'loveTheme\')">Amore</button>\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'familyTheme\')">Famiglia</button>\n' +
+                '                        </div>\n' +
+                '                    </li>\n' +
+                '                    <li class="nav-item dropdown">\n' +
+                '                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000;">\n' +
+                '                            Generi\n' +
+                '                        </a>\n' +
+                '                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'litteraryGenre\')">Letterario</button>\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'storicGenre\')">Storico</button>\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'horrorGenre\')">Horror</button>\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection(\'horrorGenre\')">Horror</button>\n' +
+                '                        </div>\n' +
+                '                    </li>\n' +
+                '                </ul>\n' +
+                '            </div>\n' +
+                '        </nav>');
+
+
+            filterSelection("all");
+
+
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+
+
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
         }
     });
+
+
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+
 </script>
 
 </body>
