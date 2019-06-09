@@ -121,16 +121,24 @@
     </div>
 </div>
 
-<div class="container" >
+<div class="container" id="containerBookFirstPage">
     <div class="row text-center" >
-        <div class="col-6 col-md-3 col-lg-3 filterDiv eventMonth">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
+        <div class="filterDiv eventMonth">
+            <div class="col-6 col-md-3 col-lg-3">
+                <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
             <div ><a href="bookPage.html" >
                 <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51rdksF61YL._SL500_.jpg">
             </a>
             </div>
             <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
+            <p class="margin_top_pixel margin_bottom_pixel">15£</p><h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
+                <div ><a href="bookPage.html" >
+                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51rdksF61YL._SL500_.jpg">
+                </a>
+                </div>
+                <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
+                <p class="margin_top_pixel margin_bottom_pixel">15£</p>
+            </div>
         </div>
         <div class="col-6 col-md-3 col-lg-3 filterDiv favoriteReadings">
             <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
@@ -200,5 +208,41 @@
 </div>
 
 <script src="filter.js"></script>
+
+<script>
+
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/book",
+        //data: data, // sto mandando
+        success: function (data) { // sto ricevendo
+
+            for (i = 0; i < data.length; i++) {
+
+//TODO finire di collegare il db, riuscire a mettere tutti i libri nelle stesse righe
+                // backtick ` variabili tra ${variabile} --- ${data[i]['']}
+                $('#containerBookFirstPage').append(`
+            <div class="col-6 col-md-3 col-lg-3">
+                <h5 class="margin_top_h5"><a href="#" class="text-dark">${data[i]['name']}</a></h5>
+            <div ><a href="bookPage.html" >
+                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51rdksF61YL._SL500_.jpg">
+            </a>
+            </div>
+            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">${data[i]['Author.id']}</a></p>
+            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
+            </div>
+
+                `);
+
+                console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
+            }
+
+
+        }
+    });
+</script>
+
 </body>
 </html>
