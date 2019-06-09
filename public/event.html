@@ -108,13 +108,10 @@
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-lg-7">
+                <div class="col-lg-7" id="map">
 
                     <!--Google map-->
-                    <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
-                        <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
+
 
                     <br>
                     <!--Buttons-->
@@ -164,10 +161,13 @@
                    ${data['presenter']}
                 `);
 
+            $('#map').append(`
+                  <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
+                        <iframe src="https://maps.google.com/maps?q=${data['location']}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                `)
             }
-            //TODO aggiungere le mappe alla pagina
-
-
     });
 </script>
 </body>
