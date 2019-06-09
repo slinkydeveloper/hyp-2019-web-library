@@ -75,82 +75,112 @@
 
 
 <div class="container ">
-        <div class="row ">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="jumbotron margin_top_event">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-4 col-lg-4">
-                            <img class="img-thumbnail"
-                                 src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                        </div>
-                        <div class="col-lg-8 col-md-12 col-sm-8">
-                            <h3>Autore</h3>
-                            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Genere</a></p>
-                            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Tematica</a></p>
-                            <p>
-                                Nata a Yate, durante la sua infanzia Joanne dimostra una notevole e spiccata fantasia, divenendo
-                                autrice di numerosi racconti:
-                                a sei anni scrisse la storia di Rabbit, un coniglio malato di morbillo, mentre a dodici anni scrisse
-                                un romanzo che trattava di sette diamanti maledetti.
-                                Durante tutto il periodo scolastico conosce numerose persone che ispireranno diversi personaggi
-                                della saga di Harry Potter: il preside delle elementari diventa Albus
-                                Silente; il suo migliore amico, alla guida di una Ford Anglia, sarà ispiratore del rosso Ronald
-                                Weasley; e il suo professore di chimica, con cui non ha mai avuto brillanti
-                                rapporti, sarà d'ispirazione per il personaggio di Severus Piton.
-                                Rowling ascolta musica pop ed è appassionata di The Smiths e della cantante Siouxsie Sioux, il cui
-                                look ha adottato per diversi anni.[5]
-                            </p>
-                        </div>
+    <div class="row ">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jumbotron margin_top_event" id="jumbotronAuthor">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4" id="authorImage">
                     </div>
+
+                    <div class="col-lg-8 col-md-12 col-sm-8">
+                        <h3 id="authorName"></h3>
+                        <p>
+                            Nata a Yate, durante la sua infanzia Joanne dimostra una notevole e spiccata fantasia, divenendo
+                            autrice di numerosi racconti:
+                            a sei anni scrisse la storia di Rabbit, un coniglio malato di morbillo, mentre a dodici anni scrisse
+                            un romanzo che trattava di sette diamanti maledetti.
+                            Durante tutto il periodo scolastico conosce numerose persone che ispireranno diversi personaggi
+                            della saga di Harry Potter: il preside delle elementari diventa Albus
+                            Silente; il suo migliore amico, alla guida di una Ford Anglia, sarà ispiratore del rosso Ronald
+                            Weasley; e il suo professore di chimica, con cui non ha mai avuto brillanti
+                            rapporti, sarà d'ispirazione per il personaggio di Severus Piton.
+                            Rowling ascolta musica pop ed è appassionata di The Smiths e della cantante Siouxsie Sioux, il cui
+                            look ha adottato per diversi anni.[5]
+                        </p>
+                    </div>
+
+
+                </div>
+                <div id="idForBooks">
                     <div class="row text-center">
-                        <div class="col-lg-2 col-md-2 col-3">
-                            <div>
-                                <p><a href="bookPage.html">Titolo</a></p>
-                                <a href="bookPage.html">
-                                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-3">
-                            <div>
-                                <p><a href="bookPage.html">Titolo</a></p>
-                                <a href="bookPage.html">
-                                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-3">
-                            <div>
-                                <p><a href="bookPage.html">Titolo</a></p>
-                                <a href="bookPage.html">
-                                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-3">
-                            <div>
-                                <p><a href="bookPage.html">Titolo</a></p>
-                                <a href="bookPage.html">
-                                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-3">
-                            <div>
-                                <p><a href="bookPage.html">Titolo</a></p>
-                                <a href="bookPage.html">
-                                    <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
-                                </a>
-                            </div>
-                        </div>
 
                     </div>
+                </div>
             </div>
-
         </div>
     </div>
 
 </div>
-</div>
+
+
+<script>
+
+
+    $.ajax({
+
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/author/1",
+
+        //data: data, // sto mandando
+
+        success: function (data) { // sto ricevendo
+
+
+            // backtick ` variabili tra ${variabile}
+            $('#authorName').append(`
+                     ${data['name']}
+
+                `);
+
+            $('#authorImage').append(`
+                     <img class="img-thumbnail"
+                             src="https://hyp-2019-library.herokuapp.com/img/author/${data['id']}.jpg">
+
+                `);
+
+        }
+
+    });
+
+
+    $.ajax({
+
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/book?author=1",
+
+        //data: data, // sto mandando
+
+        success: function (data) { // sto ricevendo
+
+
+            // backtick ` variabili tra ${variabile}
+            //$('').append(`
+
+            console.log(data);
+            for (i = 0; i < data.length; i++) {
+
+
+                $('#idForBooks').append(`
+                   <div class="col-lg-2 col-md-2 col-3">
+                                <div>
+                                    <p><a href="bookPage.html">${data[i]['name']}</a></p>
+                                    <a href="bookPage.html">
+                                        <img class="img-thumbnail" src=""https://hyp-2019-library.herokuapp.com/img/book/${data['id']}.jpg"">
+                                    </a>
+                                </div>
+                            </div>
+                `);
+
+                console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
+            }
+
+        }
+
+    });
+
+</script>
+
 </body>
 </html>
