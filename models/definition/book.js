@@ -160,32 +160,33 @@ module.exports.initRelations = () => {
     });
 
     Book.filteredBooks = function(author, genre, theme) {
-        let includes = [];
-        if (_.isString(author)) {
-            includes.push({
-                model: Author,
-                as: 'Author',
-                where: {id: author}
-            })
-        }
+        let include = [
+            {
+                model: model.Genre,
+                as: 'Genre'
+            },
+            {
+                model: model.Theme,
+                as: 'Theme'
+            },
+            {
+                model: model.Author,
+                as: 'Author'
+            }
+        ];
 
         if (_.isString(genre)) {
-            includes.push({
-                model: Genre,
-                as: 'Genre',
-                where: {id: genre}
-            })
+            include[0].where = {id: genre};
         }
 
         if (_.isString(theme)) {
-            includes.push({
-                model: Theme,
-                as: 'Theme',
-                where: {id: theme}
-            })
+            include[1].where = {id: theme};
+        }
+        if (_.isString(author)) {
+            include[2].where = {id: author};
         }
 
-        return model.Book.findAll({include: includes});
+        return model.Book.findAll({include: include});
     };
 
 };

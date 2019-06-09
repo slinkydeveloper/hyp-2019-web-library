@@ -371,7 +371,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Book"
+                  $ref: "#/components/schemas/ExplodedBook"
 components:
   securitySchemes:
     cookieSession:

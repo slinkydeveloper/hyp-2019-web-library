@@ -57,7 +57,7 @@ module.exports = (app, validator) => {
         model.Book.filteredBooks(_.get(req, 'query.author'), _.get(req, 'query.genre'), _.get(req, 'query.theme'))
             .then(books => res.json(
                 _.chain(books)
-                    .map(b => b.toSimpleJSON())
+                    .map(b => b.toExpandedJSON())
                     .values()
             ), next)
     });
