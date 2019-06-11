@@ -39,44 +39,96 @@ function addRelated(related) {
 
 async function start() {
     await addBook({
-        isbn: "9788893814508",
-        name: "Harry Potter e la pietra filosofale",
+        isbn: "9780007322602",
+        name: "The Hobbit",
         Genre: {
-            "name": "Fantasy"
+            "name": "Romance"
         },
         Theme: {
-            "name": "Wizards"
+            "name": "Fantasy"
         },
         Author: {
-            "name": "J.K. Rowling"
+            "name": "J. R. R. Tolkien"
         }
     });
     await addBook({
-        isbn: "9789510394861",
-        name: "Dal big bang ai buchi neri. Breve storia del tempo",
+        isbn: "9780765342294",
+        name: "Ender's Game",
         Genre: {
-            "name": "Science"
+            "name": "Romance"
         },
         Theme: {
-            "name": "Astrophysics"
+            "name": "Fantasy"
         },
         Author: {
-            "name": "Stephen Hawking"
+            "name": "Orson Scott Card"
         },
         BookEvent: {
-            "location": "MIT",
-            "presenter": "Il professorone",
+            "location": "Politecnico di Milano",
+            "presenter": "Orson Scott Card",
             "date": "2019-04-14"
+        }
+    });
+    await addBook({
+        isbn: "9781558522763",
+        name: "Delegate for Results",
+        Genre: {
+            "name": "Thesis"
+        },
+        Theme: {
+            "name": "Management"
+        },
+        Author: {
+            "name": "National Press Publications, Inc."
+        }
+    });
+    await addBook({
+        isbn: "9781550287912",
+        name: "Fighting",
+        Genre: {
+            "name": "Romance"
+        },
+        Theme: {
+            "name": "Juvanile literature"
+        },
+        Author: {
+            "name": "Elaine Slavens"
+        }
+    });
+    await addBook({
+        isbn: "9780881339468",
+        name: "Descartes to Kant",
+        Genre: {
+            "name": "Paper"
+        },
+        Theme: {
+            "name": "Juvanile literature"
+        },
+        Author: {
+            "name": "Garrett Thomson"
+        }
+    });
+    await addBook({
+        isbn: "9780740771132",
+        name: "Cool Jew",
+        Genre: {
+            "name": "Literature"
+        },
+        Theme: {
+            "name": "Religion"
+        },
+        Author: {
+            "name": "Lisa Alcalay Klug"
         }
     });
     await addRelated([
         {
-            "book_id_1": "9788893814508",
-            "book_id_2": "9789510394861"
+            "book_id_1": "9780007322602",
+            "book_id_2": "9780765342294"
         },
         {
-            "book_id_2": "9788893814508",
-            "book_id_1": "9789510394861"
+            "book_id_2": "9780765342294",
+            "book_id_1": "9780007322602"
         }
     ]);
 }
