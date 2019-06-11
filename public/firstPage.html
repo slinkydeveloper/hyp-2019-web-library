@@ -37,13 +37,10 @@
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Autori
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="allAuthors.html">Tutti gli autori</a>
-                    <a class="dropdown-item" href="author.html">Autore 1</a>
-                    <a class="dropdown-item" href="author.html">Autore 2</a>
-                    <a class="dropdown-item" href="author.html">Autore 3</a>
-                    <a class="dropdown-item" href="author.html">Autore 4</a>
-                    <a class="dropdown-item" href="author.html">Autore 5</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="authorsDropdown">
+                    <!--TODO addare/modificare questa riga in tutte le pagine-->
+                    <a class="dropdown-item" href="allAuthorsWhitoutBook.html" >Tutti gli autori</a>
+
                 </div>
             </li>
             <li class="nav-item">
@@ -163,6 +160,24 @@
 
 
     // Add active class to the current control button (highlight it)
+    //TODO addare questo pezzo a tutte le pagine
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/book",
+        //data: data, // sto mandando
+        success: function (data) { // sto ricevendo
+
+            for (i = 0; i < data.length; i++) {
+
+                $('#authorsDropdown').append(
+                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
+                )
+
+            }
+
+        }
+    });
 
 
     $.ajax({
@@ -177,15 +192,15 @@
 //TODO finire di collegare il db, riuscire a mettere tutti i libri nelle stesse righe
                 // backtick ` variabili tra ${variabile} --- ${data[i]['']}
 
-                $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3 filterDiv friendshipTheme">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">${data[i]['name']}</a></h5>
-            <div ><a href="bookPage.html" class="all">
+                $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3 filterDiv Widzard">
+            <h5 class="margin_top_h5"><a href="bookPage.html?isbn=${data[i]['isbn']}" class="text-dark">${data[i]['name']}</a></h5>
+            <div ><a href="bookPage.html?isbn=${data[i]['isbn']}" class="all">
                 <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
             </a>
             </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">${data[i]['Author']['name']}</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">${data[i]['Theme']['name']}</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">${data[i]['Genre']['name']}</a></p>
+            <p class="margin_top_pixel margin_bottom_pixel"><a href="author.html?id=${data[i]['Author']['id']}" class="text-dark">${data[i]['Author']['name']}</a></p>
+            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Theme']['name']}</p>
+            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Genre']['name']}</p>
             <p class="margin_top_pixel margin_bottom_pixel">15£</p>
         </div>`);
 
@@ -214,7 +229,7 @@
                 '                            Temi\n' +
                 '                        </a>\n' +
                 '                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'friendshipTheme\')">Amicizia</button>\n' +
+                '                            <button class="btn dropdown-item" onclick="filterSelection("Widzard")">Stregoneria</button>\n' +
                 '                            <button class="btn dropdown-item" onclick="filterSelection(\'loveTheme\')">Amore</button>\n' +
                 '                            <button class="btn dropdown-item" onclick="filterSelection(\'familyTheme\')">Famiglia</button>\n' +
                 '                        </div>\n' +
