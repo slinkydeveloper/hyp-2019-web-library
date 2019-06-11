@@ -137,10 +137,8 @@
 
         //data: data, // sto mandando
 
-        success: function (data) { // sto ricevendo
+        success: function (data) {
 
-
-            // backtick ` variabili tra ${variabile}
             $('#authorName').append(`
                      ${data['name']}
 
@@ -151,7 +149,6 @@
                              src="https://hyp-2019-library.herokuapp.com/img/author/${data['id']}.jpg">
 
                 `);
-
         }
 
     });
@@ -163,13 +160,8 @@
         dataType: "json",
         url: "https://hyp-2019-library.herokuapp.com/api/book?author=" + id,
 
-        //data: data, // sto mandando
 
-        success: function (data) { // sto ricevendo
-
-
-            // backtick ` variabili tra ${variabile}
-            //$('').append(`
+        success: function (data) {
 
             console.log(data);
             for (i = 0; i < data.length; i++) {
@@ -186,7 +178,6 @@
                             </div>
                 `);
 
-                console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
             }
 
         }
