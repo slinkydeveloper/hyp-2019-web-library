@@ -87,70 +87,8 @@
 </div>
 
 <div class="container">
-    <div class="row text-center" id="containerBookFirstPage"><!--
-        <div class="col-6 col-md-3 col-lg-3 filterDiv favoriteReadings">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-3 filterDiv bestSellers" >
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51RGmdVGKkL._SL500_.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-3 filterDiv friendshipTheme">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/5126p5+amYL._SL500_.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-3filterDiv loveTheme">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/91zB9X%2BjhwL.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-3 filterDiv familyTheme">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://cdn.waterstones.com/bookjackets/large/9781/4472/9781447278757.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-3 filterDiv litteraryGenre">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://www.librimondadori.it/content/uploads/2018/11/978880470698HIG-313x480.jpg?x18283">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>
-        <div class="col-6 col-md-3 col-lg-3 filterDiv storicGenre">
-            <h5 class="margin_top_h5"><a href="#" class="text-dark">Titolo</a></h5>
-            <div ><a href="bookPage.html" class="all">
-                <img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/41XGLE4voDL._SX320_BO1,204,203,200_.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="#" class="text-dark">Autore</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-        </div>-->
+    <div class="row text-center" id="containerBookFirstPage">
+
         <!--TODO qua finisce la row -->
     </div>
 </div>
@@ -161,10 +99,12 @@
 
     // Add active class to the current control button (highlight it)
     //TODO addare questo pezzo a tutte le pagine
+    // TODO addare la stessa cosa con generi e temi
     $.ajax({
         type: "GET",
         dataType: "json",
         url: "https://hyp-2019-library.herokuapp.com/api/book",
+        // TODO cambiare url con quello degli autori
         //data: data, // sto mandando
         success: function (data) { // sto ricevendo
 
@@ -195,7 +135,7 @@
                 $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3 filterDiv Widzard">
             <h5 class="margin_top_h5"><a href="bookPage.html?isbn=${data[i]['isbn']}" class="text-dark">${data[i]['name']}</a></h5>
             <div ><a href="bookPage.html?isbn=${data[i]['isbn']}" class="all">
-                <img class="img-thumbnail" src="https://m.media-amazon.com/images/I/51C70ZMHsxL._SL500_.jpg">
+                <img class="img-thumbnail" src="http://covers.openlibrary.org/b/isbn/${data[i]['isbn']}-L.jpg">
             </a>
             </div>
             <p class="margin_top_pixel margin_bottom_pixel"><a href="author.html?id=${data[i]['Author']['id']}" class="text-dark">${data[i]['Author']['name']}</a></p>
