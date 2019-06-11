@@ -31,7 +31,7 @@ app.get('/backend/spec.yaml', (req, res) => res.sendFile(__dirname + '/openapi.y
 app.get('/backend/main.html', (req, res) => res.redirect('/backend')); // Redirect main.html to index.html
 app.use('/backend', express.static('backend_public'));
 // Mount public stuff
-app.use('/public', express.static('public'));
+app.use('/', express.static('public'));
 
 // Configure session handler
 app.use('/api', session({
