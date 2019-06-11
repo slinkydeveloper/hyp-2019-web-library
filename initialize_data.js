@@ -121,14 +121,40 @@ async function start() {
             "name": "Lisa Alcalay Klug"
         }
     });
+    await addBook({
+        isbn: "9780613057660",
+        name: "Red Badge of Courage",
+        Genre: {
+            "name": "Literature"
+        },
+        Theme: {
+            "name": "History"
+        },
+        Author: {
+            "name": "Michael Burgan"
+        }
+    });
+    await addBook({
+        isbn: "9780791057957",
+        name: "Sheryl Swoopes",
+        Genre: {
+            "name": "Literature"
+        },
+        Theme: {
+            "name": "Sport"
+        },
+        Author: {
+            "name": "Michael Burgan"
+        }
+    });
     await addRelated([
         {
             "book_id_1": "9780007322602",
             "book_id_2": "9780765342294"
         },
         {
-            "book_id_2": "9780765342294",
-            "book_id_1": "9780007322602"
+            "book_id_1": "9780613057660",
+            "book_id_2": "9780791057957"
         }
     ]);
 }
