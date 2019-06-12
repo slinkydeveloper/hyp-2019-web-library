@@ -41,6 +41,7 @@ async function start() {
     await addBook({
         isbn: "9780007322602",
         name: "The Hobbit",
+        price: 5.99,
         Genre: {
             "name": "Romance"
         },
@@ -54,6 +55,7 @@ async function start() {
     await addBook({
         isbn: "9780765342294",
         name: "Ender's Game",
+        price: 5.99,
         Genre: {
             "name": "Romance"
         },
@@ -72,6 +74,7 @@ async function start() {
     await addBook({
         isbn: "9781558522763",
         name: "Delegate for Results",
+        price: 5.99,
         Genre: {
             "name": "Thesis"
         },
@@ -85,6 +88,7 @@ async function start() {
     await addBook({
         isbn: "9781550287912",
         name: "Fighting",
+        price: 5.99,
         Genre: {
             "name": "Romance"
         },
@@ -98,6 +102,7 @@ async function start() {
     await addBook({
         isbn: "9780881339468",
         name: "Descartes to Kant",
+        price: 5.99,
         Genre: {
             "name": "Paper"
         },
@@ -111,6 +116,7 @@ async function start() {
     await addBook({
         isbn: "9780740771132",
         name: "Cool Jew",
+        price: 5.99,
         Genre: {
             "name": "Literature"
         },
@@ -124,6 +130,7 @@ async function start() {
     await addBook({
         isbn: "9780613057660",
         name: "Red Badge of Courage",
+        price: 5.99,
         Genre: {
             "name": "Literature"
         },
@@ -137,6 +144,7 @@ async function start() {
     await addBook({
         isbn: "9780791057957",
         name: "Sheryl Swoopes",
+        price: 5.99,
         Genre: {
             "name": "Literature"
         },

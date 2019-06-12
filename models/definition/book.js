@@ -17,6 +17,11 @@ module.exports = (sequelize, DataTypes) => {
             field: 'name',
             allowNull: false
         },
+        price: {
+            type: DataTypes.DECIMAL(6, 2),
+            field: 'price',
+            allowNull: false
+        },
         authorId: {
             type: DataTypes.INTEGER,
             field: 'author_id',
@@ -68,11 +73,11 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Book.prototype.toExpandedJSON = function() {
-        return _.pick(this.toJSON(), ['isbn', 'name', 'Author', 'Theme', 'Genre', 'BookEvent', 'Related'])
+        return _.pick(this.toJSON(), ['isbn', 'name', 'price', 'Author', 'Theme', 'Genre', 'BookEvent', 'Related'])
     };
 
     Book.prototype.toSimpleJSON = function() {
-        return _.pick(this.toJSON(), ['isbn', 'name'])
+        return _.pick(this.toJSON(), ['isbn', 'name', 'price'])
     };
 
     return Book;

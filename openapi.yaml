@@ -485,6 +485,8 @@ components:
           type: string
         name:
           type: string
+        price:
+          type: number
     Book:
       type: object
       properties:
