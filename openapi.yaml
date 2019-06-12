@@ -5,7 +5,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: http://localhost:8080/api
+  - url: https://hyp-2019-library.herokuapp.com/api
 paths:
   /user:
     get:
