@@ -363,6 +363,20 @@ paths:
           required: false
           schema:
             type: string
+        - name: bestseller
+          description: Show only bestseller
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: staffpicks
+          description: Show only staff-picks
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
       responses:
         200:
           description: OK

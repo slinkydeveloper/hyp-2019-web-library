@@ -54,7 +54,13 @@ module.exports = (app, validator) => {
     });
 
     app.get('/api/book', validator.validate('get', '/book'), (req, res, next) => {
-        model.Book.filteredBooks(_.get(req, 'query.author'), _.get(req, 'query.genre'), _.get(req, 'query.theme'))
+        model.Book.filteredBooks(
+            _.get(req, 'query.author'),
+            _.get(req, 'query.genre'),
+            _.get(req, 'query.theme'),
+            _.get(req, 'query.bestseller'),
+            _.get(req, 'query.staffpicks')
+        )
             .then(books => res.json(
                 _.chain(books)
                     .map(b => b.toExpandedJSON())

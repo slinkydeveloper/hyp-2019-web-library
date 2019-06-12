@@ -2,6 +2,7 @@
 const _ = require('lodash');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+const config = require('../../config/config.js');
 
 module.exports = (sequelize, DataTypes) => {
     let Book = sequelize.define('Book', {
@@ -159,7 +160,7 @@ module.exports.initRelations = () => {
         otherKey: 'book_id_2'
     });
 
-    Book.filteredBooks = function(author, genre, theme) {
+    Book.filteredBooks = function(author, genre, theme, bestseller, staffpicks) {
         let include = [
             {
                 model: model.Genre,
@@ -174,6 +175,9 @@ module.exports.initRelations = () => {
                 as: 'Author'
             }
         ];
+        let options = {
+            include: include
+        };
 
         if (_.isString(genre)) {
             include[0].where = {id: genre};
@@ -185,8 +189,14 @@ module.exports.initRelations = () => {
         if (_.isString(author)) {
             include[2].where = {id: author};
         }
+        if (_.isBoolean(bestseller) && bestseller) {
+            _.set(options, 'where.isbn', config["best-seller"])
+        }
+        if (_.isBoolean(staffpicks) && staffpicks) {
+            _.set(options, 'where.isbn', config["staff-picks"])
+        }
 
-        return model.Book.findAll({include: include});
+        return model.Book.findAll(options);
     };
 
 };

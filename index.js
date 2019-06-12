@@ -17,7 +17,7 @@ sequelize.sync();
 const openApiDocument = jsYaml.safeLoad(
     fs.readFileSync("openapi.yaml", "utf-8")
 );
-const validator = new OpenApiValidator(openApiDocument);
+const validator = new OpenApiValidator(openApiDocument, {ajvOptions: { coerceTypes: true }});
 
 // Initialize express router
 const app = express();
