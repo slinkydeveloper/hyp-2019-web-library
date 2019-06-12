@@ -20,7 +20,7 @@
         crossorigin="anonymous"></script>
 <!-- TODO ricorda di aggiornarla sempre -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Libri per tutti</a>
+    <a class="navbar-brand">Libri per tutti</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,14 +34,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="books.html">Libri</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Autori
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="authorsDropdown">
-                    <a class="dropdown-item" href="allAuthorsWhitoutBook.html">Tutti gli autori</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="authors.html">Tutti gli autori</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="events.html">Eventi</a>
@@ -51,7 +45,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                            aria-hidden="true"></i> Carrello</a>
+                                                                      aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -121,7 +115,7 @@
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/author",
+        url: "/api/author",
         //data: data, // sto mandando
         success: function (data) { // sto ricevendo
 
@@ -145,27 +139,6 @@
 
         }
     });
-
-
-
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book",
-
-        success: function (data) {
-
-            for (i = 0; i < data.length; i++) {
-
-                $('#authorsDropdown').append(
-                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
-                )
-
-            }
-
-        }
-    });
-
 
 </script>
 

@@ -13,7 +13,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Libri per tutti</a>
+    <a class="navbar-brand">Libri per tutti</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,14 +27,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="books.html">Libri</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Autori
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="authorsDropdown">
-                    <a class="dropdown-item" href="allAuthorsWhitoutBook.html">Tutti gli autori</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="authors.html">Tutti gli autori</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="events.html">Eventi</a>
@@ -117,7 +111,7 @@
             $('#location').append(`Dove: ${data['location']}`);
             $('#date').append(`Quando: ${data['date']}`);
             $('#bookTitle')
-                .append(`Libro: <a href="bookPage.html?isbn=${data['Book']['isbn']}">${data['Book']['name']}</a>`);
+                .append(`Libro: <a href="book.html?isbn=${data['Book']['isbn']}">${data['Book']['name']}</a>`);
 
             $('#map').append(`
                   <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
