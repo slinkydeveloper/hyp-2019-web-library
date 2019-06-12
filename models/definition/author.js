@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             field: 'name',
             allowNull: false
+        },
+        description: {
+            type: DataTypes.TEXT,
+            field: 'description',
+            allowNull: false
         }
     }, {
         schema: 'library',
@@ -22,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Author.prototype.toSimpleJSON = function() {
-        return _.pick(this.toJSON(), ['id', 'name'])
+        return _.pick(this.toJSON(), ['id', 'name', 'description'])
     };
 
     return Author;

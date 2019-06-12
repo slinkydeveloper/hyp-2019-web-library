@@ -485,8 +485,8 @@ components:
           type: string
         name:
           type: string
-        price:
-          type: number
+        description:
+          type: string
     Book:
       type: object
       properties:
@@ -494,6 +494,10 @@ components:
           $ref: "#/components/schemas/ISBN"
         name:
           type: string
+        description:
+          type: string
+        price:
+          type: number
     ExpandedBook:
       allOf:
         - $ref: "#/components/schemas/Book"

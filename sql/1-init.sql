@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS library.Theme (
 
 CREATE TABLE IF NOT EXISTS library.Author (
     id SERIAL UNIQUE NOT NULL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    name VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS library.BookEvent (
@@ -34,6 +35,7 @@ CREATE TABLE IF NOT EXISTS library.Book (
     isbn CHAR(13) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     price NUMERIC(6, 2) NOT NULL,
+    description TEXT NOT NULL,
     author_id INTEGER NOT NULL REFERENCES library.Author(id),
     genre_id INTEGER NOT NULL REFERENCES library.Genre(id),
     theme_id INTEGER NOT NULL REFERENCES library.Theme(id),

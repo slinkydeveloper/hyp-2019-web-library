@@ -72,6 +72,7 @@
             <h4 id="bookGenre"></h4>
             <h4 id="bookTheme"></h4>
             <p id="bookPrice"></p>
+            <p id="bookDescription"></p>
             <p id="bookEvent"></p>
 
             <a href="bookReservation.html">
@@ -120,6 +121,7 @@
             $('#bookGenre').append(`Genere: ${data['Genre']['name']}`);
             $('#bookTheme').append(`Tema: ${data['Theme']['name']}`);
             $('#bookPrice').append(`Prezzo: ${data['price']}€`);
+            $('#bookDescription').append(`Descrizione: ${data['description']}`);
 
             if (data['BookEvent'] !== undefined && data['BookEvent'] !== null) {
                 $('#bookEvent')
