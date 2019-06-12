@@ -12,9 +12,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Libri per tutti</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -27,16 +28,12 @@
                 <a class="nav-link" href="bookPage.html">Libri</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutor" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Autori
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="authorsDropdown">
                     <a class="dropdown-item" href="allAuthorsWhitoutBook.html">Tutti gli autori</a>
-                    <a class="dropdown-item" href="author.html">Autore 1</a>
-                    <a class="dropdown-item" href="author.html">Autore 2</a>
-                    <a class="dropdown-item" href="author.html">Autore 3</a>
-                    <a class="dropdown-item" href="author.html">Autore 4</a>
-                    <a class="dropdown-item" href="author.html">Autore 5</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -46,10 +43,12 @@
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Carrello</a>
+                <a class="nav-link" href="../../book%20Reservation.html"><i class="fa fa-shopping-cart"
+                                                                            aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
                     Usability
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -184,6 +183,24 @@
             }
             // TODO addare info relative al libro e all'autore e il LINK al libro
 
+    });
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/book",
+
+        success: function (data) {
+
+            for (i = 0; i < data.length; i++) {
+
+                $('#authorsDropdown').append(
+                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
+                )
+
+            }
+
+        }
     });
 
 </script>

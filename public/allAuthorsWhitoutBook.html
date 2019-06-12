@@ -39,13 +39,8 @@
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Autori
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="authorsDropdown">
                     <a class="dropdown-item" href="allAuthorsWhitoutBook.html">Tutti gli autori</a>
-                    <a class="dropdown-item" href="author.html">Autore 1</a>
-                    <a class="dropdown-item" href="author.html">Autore 2</a>
-                    <a class="dropdown-item" href="author.html">Autore 3</a>
-                    <a class="dropdown-item" href="author.html">Autore 4</a>
-                    <a class="dropdown-item" href="author.html">Autore 5</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -150,6 +145,28 @@
 
         }
     });
+
+
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://hyp-2019-library.herokuapp.com/api/book",
+
+        success: function (data) {
+
+            for (i = 0; i < data.length; i++) {
+
+                $('#authorsDropdown').append(
+                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
+                )
+
+            }
+
+        }
+    });
+
+
 </script>
 
 </body>
