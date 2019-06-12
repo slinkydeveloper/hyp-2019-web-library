@@ -184,8 +184,16 @@ html, body {
     margin-right: 10px ;
 }
 
+.authors-image {
+    height: 200px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 400px) {
+
+    .authors-image {
+        height: 75px;
+    }
 
     .marginOk {
         margin-left: 130px;
@@ -238,6 +246,10 @@ html, body {
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 768px) {
+
+    .authors-image {
+        height: 200px;
+    }
 
     .marginOk {
         margin-left: 270px;
@@ -308,6 +320,10 @@ html, body {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1400px) {
+
+    .authors-image {
+        height: 300px;
+    }
 
     .marginOk {
         margin-left:480px;

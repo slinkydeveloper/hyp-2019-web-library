@@ -7,7 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/stylesheetPages.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/stylesheetPages.css" type="text/css">
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -116,24 +116,16 @@
         type: "GET",
         dataType: "json",
         url: "/api/author",
-        //data: data, // sto mandando
-        success: function (data) { // sto ricevendo
-
+        success: function (data) {
             for (i = 0; i < data.length; i++) {
-
-
-                // backtick ` variabili tra ${variabile}
                 $('#containerAutori').append(`
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <a href="author.html?id=${data[i]['id']}">
-                                <img class="img-thumbnail"
-                                     src="https://assets.rappler.com/612F469A6EA84F6BAE882D2B94A4B421/img/1BE2F076B0DC427FA89CD89543A869BF/image-2019-05-31-6_1BE2F076B0DC427FA89CD89543A869BF.jpg">
-                            </a>
-                            <h4 class="margin_top_h5"><a href="author.html?id=${data[i]['id']}" class="text-dark" >${data[i]['name']}</a></h4>
+                        <img class="img-thumbnail authors-image mx-auto d-block" src="/assets/img/author/${data[i]['id']}.jpg">
+                    </a>
+                    <h4 class="margin_top_h5"><a href="author.html?id=${data[i]['id']}" class="text-dark" >${data[i]['name']}</a></h4>
                     </div>
                 `);
-
-                console.log('<p>Autore numero: ' + data[i]['id'] + '</p> <p>Nome: ' + data[i]['name'] + '</p>');
             }
 
 
