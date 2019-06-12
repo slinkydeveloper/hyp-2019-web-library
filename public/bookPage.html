@@ -43,7 +43,7 @@
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart"
+                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
                                                                             aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
@@ -67,50 +67,32 @@
     </div>
 </nav>
 
-<div class="container  margin_top_event ">
+<div class="container  margin_top_event">
     <div class="row jumbotron">
         <div class="col-sm-4 col-md-4 col-lg-4" id="bookPhoto">
-            <div id="bookImage">
-
-            </div>
+            <div id="bookImage"></div>
         </div>
         <div class="col-sm-8 col-md-8 col-lg-8">
             <h3 id="bookTitle"></h3>
-            <h4 id="bookAuthor"><a href="author.html"></a> </h4>
-            <h4 id="bookGenre">Genere: </h4>
-            <h4 id="bookTheme">Tema: </h4>
-            <p>Prezzo: 15£</p>
+            <h4 id="bookAuthor"></h4>
+            <h4 id="bookGenre"></h4>
+            <h4 id="bookTheme"></h4>
+            <p id="bookPrice"></p>
+            <p id="bookEvent"></p>
+
+            <a href="bookReservation.html">
+                <button type="button" class="btn btn-primary" >
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>Aggiungi al carrello
+                </button>
+            </a>
 
         </div>
-        <a href="book%20Reservation.html"><button type="button" class="btn btn-primary" > <i class="fa fa-shopping-cart" aria-hidden="true"></i>  Aggiungi al carrello</button></a>
     </div>
     <div class="jumbotron margin_top_event">
         <h4>
-            <i class="fa fa-eye" aria-hidden="true"></i>  Guarda altri libri che potrebbero interessarti</h4>
-        <div class="row">
-            <div class="col-6 col-sm-6 col-md-2 col-lg-2" >
-                <h5 class="margin_top_h5"><a href="bookPage.html" class="text-dark" id="releatedBook1">Titolo</a></h5>
-                <div><a href="bookPage.html" id="releatedBookImage1">
-
-                </a>
-                    <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-2 col-lg-2" >
-                <h5 class="margin_top_h5"><a href="bookPage.html" class="text-dark" id="releatedBook2">Titolo</a></h5>
-                <div><a href="bookPage.html" id="releatedBookImage2">
-
-                </a>
-                    <p class="margin_top_pixel margin_bottom_pixel">15£</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="jumbotron margin_top_event" >
-        <h4><i class="fa fa-calendar" aria-hidden="true"></i>  Eventi</h4>
-        <div id="bookEvent">
-
-        </div>
+            <i class="fa fa-eye" aria-hidden="true"></i>Guarda altri libri che potrebbero interessarti
+        </h4>
+        <div class="row" id="bookEvents"></div>
     </div>
 </div>
 
@@ -135,116 +117,44 @@
 
         type: "GET",
         dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book/" + isbn,
-
-        //data: data, // sto mandando
-
-        success: function (data) { // sto ricevendo
-
-
-            // backtick ` variabili tra ${variabile}
-            $('#bookTitle').append(`
-                     ${data['name']}
-
-                `);
-
-            $('#bookAuthor').append(`
-                    ${data['Author']['name']}
-                `);
-
-            $('#bookGenre').append(`
-                    ${data['Genre']['name']}
-                `);
-
-            $('#bookTheme').append(`
-                    ${data['Theme']['name']}
-                `);
-
-            $('#bookImage').append(`
-                     <img class="img-thumbnail"
-                             src="https://hyp-2019-library.herokuapp.com/img/book/${data['id']}.jpg">
-
-
-
-                `);
-            //TODO controllare tutte le cartelle così
-
-            $('#releatedBook1').append(`
-                    ${data['Related'][0]['RelatedBook']['book_id_1']}
-                `);
-
-            $('#releatedBookImage1').append(`
-                     <img class="img-thumbnail"
-                             src="https://hyp-2019-library.herokuapp.com/img/book/${data['id']}.jpg">
-
-
-
-                `);
-
-            $('#releatedBook2').append(`
-                    ${data['Related'][0]['RelatedBook']['book_id_2']}
-                `);
-
-            $('#releatedBookImage2').append(`
-                     <img class="img-thumbnail"
-                             src="https://hyp-2019-library.herokuapp.com/img/book/${data['id']}.jpg">
-
-
-
-                `);
-
-            console.log(data['Related'][0]['RelatedBook']['book_id_1']);
-
-        }
-
-    });
-
-    $.ajax({
-
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/bookEvent",
-
-        //data: data, // sto mandando
-
-        success: function (data) { // sto ricevendo
-
-
-            // backtick ` variabili tra ${variabile}
-            //$('').append(`
-            console.log(data);
-            for (i = 0; i < data.length; i++) {
-
-
-                // backtick ` variabili tra ${variabile}
-                $('#bookEvent').append(`
-                <p class="margin_top_event"><a href="event.html">Evento : ${data[i]['id']}</a></p>
-
-                `);
-
-            }
-
-        }
-
-    });
-
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book",
-
+        url: "/api/book/" + isbn,
         success: function (data) {
+            $('#bookTitle').append(data['name']);
+            $('#bookAuthor').append(`Autore: <a href="author.html?id=${data['Author']['id']}">${data['Author']['name']}</a>`);
+            $('#bookGenre').append(`Genere: ${data['Genre']['name']}`);
+            $('#bookTheme').append(`Tema: ${data['Theme']['name']}`);
+            $('#bookPrice').append(`Prezzo: ${data['price']}€`);
 
-            for (i = 0; i < data.length; i++) {
+            if (data['BookEvent'] !== undefined) {
+                $('#bookEvent')
+                    .append(`Evento correlato: <a href="event.html?id=${data['BookEvent']['id']}">Presentazione del libro ${data['name']} a "${data['BookEvent']['location']}"</a>`);
+            }
 
-                $('#authorsDropdown').append(
-                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
-                )
+            $('#bookImage')
+                .append(`<img class="img-thumbnail" src="http://covers.openlibrary.org/b/isbn/${data['isbn']}-L.jpg">`);
 
+            if (data['Related'] !== undefined) {
+
+                data['Related'].forEach(function (relatedBook) {
+                    $('#bookEvents')
+                        .append(`
+                        <div class="col-6 col-sm-6 col-md-2 col-lg-2" >
+                            <h5 class="margin_top_h5">
+                                <a href="bookPage.html?isbn=${relatedBook['isbn']}" class="text-dark">${relatedBook['name']}</a>
+                            </h5>
+                            <div>
+                                <a href="bookPage.html?isbn=${relatedBook['isbn']}">
+                                    <img class="img-thumbnail" src="http://covers.openlibrary.org/b/isbn/${relatedBook['isbn']}-L.jpg">
+                                </a>
+                            </div>
+                        </div>`);
+                });
             }
 
         }
+
     });
+
 </script>
 
 
