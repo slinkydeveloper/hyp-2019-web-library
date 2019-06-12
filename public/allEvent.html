@@ -95,9 +95,9 @@
 
 
     <!--Grid row-->
-    <div class="row no-gutters">
+    <div class="row no-gutters" >
         <!--Grid column-->
-        <div class="col-lg-5 col-md-5 col-sm-6 mb-4  ">
+        <div class="col-lg-5 col-md-5 col-sm-6 mb-4  " >
             <div class="jumbotron " id="allEventId">
                 <!--Card-->
                 <div>
@@ -123,27 +123,6 @@
                 <!--Card-->
                 <div>
                     <!--Card image-->
-                    <div class="view view-cascade gradient-card-header peach-gradient">
-                        <h5 class="mb-0 text-center">Evento 1</h5>
-                    </div>
-                    <!--/Card image-->
-
-                    <!--Card content-->
-                    <div class="card-body card-body-cascade">
-                        <p>Relatori a caso</p>
-                        <p>Descrizione a caso dell'evento: Si possono distinguere nel testo diversi tipi di descrizione.
-                            I primi tipi sono la descrizione
-                            soggettiva ed oggettiva. La descrizione oggettiva è denotativa, cioè la cosa o la persona
-                            viene descritta in modo impersonale,
-                            ovvero basandosi su dati che tutti possono constatare e non inserendo nulla di personale. La
-                            descrizione soggettiva, invece, è
-                            connotativa</p>
-
-                        <button type="button" class="btn btn-primary"><a href="event.html" class="inner_color_link">Guarda
-                            nei dettagli l'evento</a></button>
-
-                    </div>
-                    <!--/.Card content-->
 
                 </div>
                 <!--/.Card-->
@@ -182,14 +161,14 @@
                     <p>Presentato da: ${data[i]['presenter']} </p>
                         <p>Dove si svolgerà ? ${data[i]['location']}</p>
                         <p>Data: ${data[i]['date']}</p>
-                         <button type="button" class="btn btn-primary"><a href="event.html?idEvent=${data[i]['id']}" class="inner_color_link">Guarda nei dettagli l'evento</a></button>
+                         <a href="event.html?idEvent=${data[i]['id']}" class="inner_color_link"><button type="button" class="btn btn-primary">Guarda nei dettagli l'evento</button></a>
                     </div>
                 </div>
 
                 `);
             }
         }
-
+//TODO addare filtri eventi del mese
         });
 </script>
 

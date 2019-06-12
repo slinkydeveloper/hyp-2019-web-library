@@ -43,8 +43,15 @@
 
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="allEvent.html">Eventi</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="eventDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Eventi
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!-- TODO addare link per le pagine degli eventi  o i filtri -->
+                    <a class="dropdown-item" href="#">Eventi del mese</a>
+                    <a class="dropdown-item" href="allEvent.html">Tutti gli eventi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
@@ -100,6 +107,7 @@
     // Add active class to the current control button (highlight it)
     //TODO addare questo pezzo a tutte le pagine
     // TODO addare la stessa cosa con generi e temi
+    //TODO togliere eventi del mese nella navabar e metterla in quella principale --> lo fa fra
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -141,7 +149,7 @@
             <p class="margin_top_pixel margin_bottom_pixel"><a href="author.html?id=${data[i]['Author']['id']}" class="text-dark">${data[i]['Author']['name']}</a></p>
             <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Theme']['name']}</p>
             <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Genre']['name']}</p>
-            <p class="margin_top_pixel margin_bottom_pixel">15£</p>
+
         </div>`);
 
             }
@@ -155,9 +163,7 @@
                 '\n' +
                 '            <div class="collapse navbar-collapse" >\n' +
                 '                <ul class="navbar-nav mr-auto">\n' +
-                '                    <li class="nav-item">\n' +
-                '                        <button class="btn" onclick="filterSelection(\'eventMonth\')">Eventi del mese</button>\n' +
-                '                    </li>\n' +
+                '                    \n' +
                 '                    <li class="nav-item">\n' +
                 '                        <button class="btn" onclick="filterSelection(\'favoriteReadings\')">Letture consigliate</button>\n' +
                 '                    </li>\n' +
