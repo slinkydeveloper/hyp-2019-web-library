@@ -21,6 +21,10 @@ module.exports = (app, validator) => {
                     as: 'Author'
                 },
                 {
+                    model: model.Bookevent,
+                    as: 'BookEvent'
+                },
+                {
                     model: model.Book,
                     as: 'Related',
                     attributes: ['isbn', 'name']
