@@ -186,6 +186,12 @@ html, body {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 400px) {
+
+    .marginOk {
+        margin-left: 130px;
+        margin-top: 20px;
+    }
+
     .square {
         width: 200px;
         height: 200px;
@@ -232,6 +238,12 @@ html, body {
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 768px) {
+
+    .marginOk {
+        margin-left: 270px;
+        margin-top: 20px;
+    }
+
     .square {
         width: 200px;
         height: 200px;
@@ -296,6 +308,12 @@ html, body {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1400px) {
+
+    .marginOk {
+        margin-left:480px;
+        margin-top: 20px;
+    }
+
     .square {
         width: 200px;
         height: 200px;
