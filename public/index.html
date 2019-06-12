@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>fake sito</title>
+    <title>Home Page</title>
     <!--    <link rel="stylesheet" type="text/css" href="bootstrap.css">-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="stylesheetPages.css" type="text/css">
 </head>
 <body>
+
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Libri per tutti</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,6 +28,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="firstPage.html">Home <span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="firstPage.html">Libri</a>
             </li>
@@ -80,40 +81,49 @@
     </div>
 </nav>
 
-<div class="container divisor for_dropdown_in_container">
-    <div class="jumbotron" id="menuFilter">
-
-        <h1>
-            <i class="fa fa-book"></i>
-            Galleria online di libri</h1>
-        <p>qui puoi vedere, salvare e commentare i tuoi libri preferiti
-        </p>
-
+<div class="container margin_login font-weight-light">
+    <div class="row margin_login">
+        <div class="col-12 col-md-12 col-lg-12 ">
+            <h1 class="text-center font-weight-light" >Il portico del libri</h1>
+        </div>
+        <div class="col-7 col-md-6 col-lg-6 margin_login">
+                <img class="img-thumbnail"
+                     src="https://www.raiplayradio.it/cropgd/853x480/dl/img/2018/07/02/1530538614121_libri%20si.jpg">
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 margin_login">
+            <h2 class="font-weight-light margin_login" >Ci occupiamo di libri, di eventi di presentazione </h2>
+            <p>su questo sito potrai trovare un sacco di contenuti interessanti relativi ai tuoi libri preferiti!</p>
+            <a href="books.html" class="inner_color_link"><button type="button" class="btn btn-primary">Guarda tutti i libri!</button></a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 margin_login">
+            <h2 class="font-weight-light margin_login">Eventi </h2>
+            <p>organizziamo un sacco di eventi per socializzare e discutere di letteratura con presentatori di altissimo livello, guarda quante proposte abbiamo !</p>
+            <a href="allEvent.html" class="inner_color_link"><button type="button" class="btn btn-primary">Guarda i nostri eventi!</button></a>
+        </div>
+        <div class="col-7 col-md-6 col-lg-6 margin_login">
+            <img class="img-thumbnail"
+                 src="https://www.invalcavallina.it/wp-content/uploads/2017/10/Sito-ufficiale-Turismo-in-Val-Cavallina-Lago-di-Endine-Eventi-San-Paolo-d1698039Argon-1698.jpg">
+        </div>
+        <div class="col-7 col-md-6 col-lg-6 margin_login">
+            <img class="img-thumbnail"
+                 src="https://www.bompiani.it/img/bompiani/autori.jpg">
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 margin_login">
+            <h2 class="font-weight-light margin_login">I tuoi autori preferiti a portata di click </h2>
+            <p>su questo sito potrai trovare i tuoi autori preferiti e restare aggiornato su tutte le novità riguardanti i loro libri</p>
+            <a href="allAuthorsWhitoutBook.html" class="inner_color_link"><button type="button" class="btn btn-primary">Guarda gli autori!</button></a>
+        </div>
     </div>
 </div>
-
-<div class="container">
-    <div class="row text-center" id="containerBookFirstPage">
-
-        <!--TODO qua finisce la row -->
-    </div>
-</div>
-
 
 <script>
 
-
-    // Add active class to the current control button (highlight it)
-    //TODO addare questo pezzo a tutte le pagine
-    // TODO addare la stessa cosa con generi e temi
-    //TODO togliere eventi del mese nella navabar e metterla in quella principale --> lo fa fra
     $.ajax({
         type: "GET",
         dataType: "json",
         url: "https://hyp-2019-library.herokuapp.com/api/book",
-        // TODO cambiare url con quello degli autori
-        //data: data, // sto mandando
-        success: function (data) { // sto ricevendo
+
+        success: function (data) {
 
             for (i = 0; i < data.length; i++) {
 
@@ -126,131 +136,6 @@
         }
     });
 
-
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book",
-        //data: data, // sto mandando
-        success: function (data) { // sto ricevendo
-
-            for (i = 0; i < data.length; i++) {
-
-//TODO finire di collegare il db, riuscire a mettere tutti i libri nelle stesse righe
-                // backtick ` variabili tra ${variabile} --- ${data[i]['']}
-
-                $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3 filterDiv Widzard">
-            <h5 class="margin_top_h5"><a href="bookPage.html?isbn=${data[i]['isbn']}" class="text-dark">${data[i]['name']}</a></h5>
-            <div ><a href="bookPage.html?isbn=${data[i]['isbn']}" class="all">
-                <img class="img-thumbnail" src="http://covers.openlibrary.org/b/isbn/${data[i]['isbn']}-L.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="author.html?id=${data[i]['Author']['id']}" class="text-dark">${data[i]['Author']['name']}</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Theme']['name']}</p>
-            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Genre']['name']}</p>
-
-        </div>`);
-
-            }
-
-
-            $('#menuFilter').append('<nav class="navbar navbar-expand-lg navbar-light bg-light" id="myBtnContainer" >\n' +
-                '            <button class="navbar-brand btn" onclick="filterSelection(\'all\')">Tutti i libri</button>\n' +
-                '            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n' +
-                '                <span class="navbar-toggler-icon"></span>\n' +
-                '            </button>\n' +
-                '\n' +
-                '            <div class="collapse navbar-collapse" >\n' +
-                '                <ul class="navbar-nav mr-auto">\n' +
-                '                    \n' +
-                '                    <li class="nav-item">\n' +
-                '                        <button class="btn" onclick="filterSelection(\'favoriteReadings\')">Letture consigliate</button>\n' +
-                '                    </li>\n' +
-                '                    <li class="nav-item">\n' +
-                '                        <button class="btn" onclick="filterSelection(\'bestSellers\')">Best sellers del mese</button>\n' +
-                '                    </li>\n' +
-                '                    <li class="nav-item dropdown">\n' +
-                '                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000;">\n' +
-                '                            Temi\n' +
-                '                        </a>\n' +
-                '                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection("Widzard")">Stregoneria</button>\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'loveTheme\')">Amore</button>\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'familyTheme\')">Famiglia</button>\n' +
-                '                        </div>\n' +
-                '                    </li>\n' +
-                '                    <li class="nav-item dropdown">\n' +
-                '                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000;">\n' +
-                '                            Generi\n' +
-                '                        </a>\n' +
-                '                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'litteraryGenre\')">Letterario</button>\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'storicGenre\')">Storico</button>\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'horrorGenre\')">Horror</button>\n' +
-                '                            <button class="btn dropdown-item" onclick="filterSelection(\'horrorGenre\')">Horror</button>\n' +
-                '                        </div>\n' +
-                '                    </li>\n' +
-                '                </ul>\n' +
-                '            </div>\n' +
-                '        </nav>');
-
-
-            filterSelection("all");
-
-
-            var btnContainer = document.getElementById("myBtnContainer");
-            var btns = btnContainer.getElementsByClassName("btn");
-
-
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].addEventListener("click", function () {
-                    var current = document.getElementsByClassName("active");
-                    current[0].className = current[0].className.replace(" active", "");
-                    this.className += " active";
-                });
-            }
-        }
-    });
-
-
-    function filterSelection(c) {
-        var x, i;
-        x = document.getElementsByClassName("filterDiv");
-        if (c == "all") c = "";
-        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-        for (i = 0; i < x.length; i++) {
-            w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-        }
-    }
-
-    // Show filtered elements
-    function w3AddClass(element, name) {
-        var i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            if (arr1.indexOf(arr2[i]) == -1) {
-                element.className += " " + arr2[i];
-            }
-        }
-    }
-
-    // Hide elements that are not selected
-    function w3RemoveClass(element, name) {
-        var i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            while (arr1.indexOf(arr2[i]) > -1) {
-                arr1.splice(arr1.indexOf(arr2[i]), 1);
-            }
-        }
-        element.className = arr1.join(" ");
-    }
-
-
 </script>
-
 </body>
 </html>

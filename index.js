@@ -28,7 +28,7 @@ app.use(express.json());
 // Mount Spec
 app.get('/backend/spec.yaml', (req, res) => res.sendFile(__dirname + '/openapi.yaml'));
 // Mount backend docs and stuff
-app.get('/backend/main.html', (req, res) => res.redirect('/backend')); // Redirect main.html to index.html
+app.get('/backend/main.html', (req, res) => res.redirect('/backend')); // Redirect main.html to books.html
 app.use('/backend', express.static('backend_public'));
 // Mount public stuff
 app.use('/', express.static('public'));
