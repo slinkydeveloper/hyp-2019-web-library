@@ -119,6 +119,8 @@
         dataType: "json",
         url: "/api/book/" + isbn,
         success: function (data) {
+            document.title = data['name'];
+
             $('#bookTitle').append(data['name']);
             $('#bookAuthor').append(`Autore: <a href="author.html?id=${data['Author']['id']}">${data['Author']['name']}</a>`);
             $('#bookGenre').append(`Genere: ${data['Genre']['name']}`);

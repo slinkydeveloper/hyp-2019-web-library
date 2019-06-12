@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>author</title>
+    <title>Autore</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheetPages.css">
@@ -85,13 +85,8 @@
                         <h3 id="authorName"></h3>
                     </div>
 
-
                 </div>
-                <div id="idForBooks">
-                    <div class="row text-center">
-
-                    </div>
-                </div>
+                <div id="books"></div>
             </div>
         </div>
     </div>
@@ -114,77 +109,40 @@
 
     var id = getQueryVariable("id");
 
-
+    // Load author info
     $.ajax({
-
         type: "GET",
         dataType: "json",
         url: "https://hyp-2019-library.herokuapp.com/api/author/" + id,
-
-        //data: data, // sto mandando
-
         success: function (data) {
+            document.title = data['name'];
+            $('#authorName')
+                .append(`${data['name']}`);
 
-            $('#authorName').append(`
-                     ${data['name']}
-
-                `);
-
-            $('#authorImage').append(`
-                     <img class="img-thumbnail"
-                             src="https://hyp-2019-library.herokuapp.com/img/author/${data['id']}.jpg">
-
-                `);
+            $('#authorImage').append(`<img class="img-thumbnail" src="/img/author/${data['id']}.jpg">`);
         }
 
     });
 
-
+    // Load author books
     $.ajax({
-
         type: "GET",
         dataType: "json",
         url: "https://hyp-2019-library.herokuapp.com/api/book?author=" + id,
-
-
         success: function (data) {
-
-            console.log(data);
-            for (i = 0; i < data.length; i++) {
-
-
-                $('#idForBooks').append(`
-                   <div class="col-lg-2 col-md-2 col-3">
-                                <div>
-                                    <p><a href="bookPage.html">${data[i]['name']}</a></p>
-                                    <a href="bookPage.html">
-                                        <img class="img-thumbnail" src=""https://hyp-2019-library.herokuapp.com/img/book/${data['id']}.jpg"">
-                                    </a>
-                                </div>
-                            </div>
+            data.forEach(function (book) {
+                $('#books').append(`
+                    <div class="col-lg-2 col-md-2 col-3">
+                        <div>
+                            <p class="text-center"><a href="bookPage.html?isbn=${book['isbn']}">${book['name']}</a></p>
+                            <a href="bookPage.html?isbn=${book['isbn']}">
+                                <img class="img-thumbnail"
+                                src="http://covers.openlibrary.org/b/isbn/${book['isbn']}-L.jpg">
+                            </a>
+                        </div>
+                    </div>
                 `);
-
-            }
-
-        }
-
-    });
-
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book",
-
-        success: function (data) {
-
-            for (i = 0; i < data.length; i++) {
-
-                $('#authorsDropdown').append(
-                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
-                )
-
-            }
-
+            });
         }
     });
 
