@@ -48,7 +48,7 @@
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart"
+                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
                                                                       aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
@@ -132,8 +132,6 @@
                 $('#containerBookFirstPage').empty();
 
                 for (i = 0; i < data.length; i++) {
-                    // backtick ` variabili tra ${variabile} --- ${data[i]['']}
-
                     $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3">
             <h5 class="margin_top_h5"><a href="bookPage.html?isbn=${data[i]['isbn']}" class="text-dark">${data[i]['name']}</a></h5>
             <div ><a href="bookPage.html?isbn=${data[i]['isbn']}" class="all">

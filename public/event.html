@@ -43,7 +43,7 @@
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="book%20Reservation.html"><i class="fa fa-shopping-cart"
+                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
                                                                       aria-hidden="true"></i> Carrello</a>
             </li>
             <li class="nav-item dropdown">
@@ -70,52 +70,21 @@
 <div class="container margin_top_event margin_event">
     <div class="jumbotron ">
         <section class="section pb-5">
-
-            <!--Section heading-->
-            <h2 class="section-heading h1 pt-4"><i class="fa fa-calendar" aria-hidden="true" id="titleEvent"></i>: Id dell'evento </h2>
-            <!--Section description-->
-            <p class="section-description pb-4" id="relator">chi presenta l'evento: </p>
-
+            <h2 class="section-heading h1 pt-4" id="titleEvent"><i class="fa fa-calendar" aria-hidden="true"></i></h2>
             <div class="row">
-
-                <!--Grid column-->
                 <div class="col-lg-5 mb-4">
-
-                    <!--Form with header-->
                     <div class="card">
-
                         <div class="card-body">
-                            <p id="location">Location : </p>
-                            <p id="date"> Data: </p>
-                            <p>dettagli relativi al libro presentato :</p>
-                            <p id="bookTitle">Titolo del libro :</p>
-
-<!--                            <p id="author">autore del libro :</p>-->
-<!--                            <p id="genre">genere del libro :</p>-->
-<!--                            <p id="tema">tema del libro :</p>-->
-                            <p>pippone assurdo per la descrizione dell'evento:
-                                bla bla bla bla bla bla bla bla bla bla bla bla</p>
-
+                            <p id="relator"></p>
+                            <p id="location"></p>
+                            <p id="date"></p>
+                            <p id="bookTitle"></p>
                         </div>
-
                     </div>
-                    <!--Form with header-->
-
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
                 <div class="col-lg-7" id="map">
-
-                    <!--Google map-->
-
-
                     <br>
-                    <!--Buttons-->
-
                 </div>
-                <!--Grid column-->
-
             </div>
 
         </section>
@@ -135,72 +104,28 @@
         return(false);
     }
 
-    var idEvent = getQueryVariable("idEvent");
-
-
+    var idEvent = getQueryVariable("id");
 
     $.ajax({
 
         type: "GET",
         dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/bookEvent/" + idEvent,
-
-        //data: data, // sto mandando
-
-        success: function (data) { // sto ricevendo
-
-
-            // backtick ` variabili tra ${variabile}
-            //$('').append(`
-            console.log(data);
-
-                $('#titleEvent').append(`
-                   ${data['id']}
-                `);
-
-            $('#relator').append(`
-                   ${data['presenter']}
-                `);
-
-            $('#location').append(`
-                   ${data['location']}
-                `);
-
-            $('#date').append(`
-                   ${data['date']}
-                `);
-
-            $('#bookTitle').append(`
-                   ${data['Book']['name']}
-                `);
+        url: "/api/bookEvent/" + idEvent,
+        success: function (data) {
+            $('#titleEvent').append(` Presentazione del libro ${data['Book']['name']} a "${data['location']}`);
+            $('#relator').append(`Presenta: ${data['presenter']}`);
+            $('#location').append(`Dove: ${data['location']}`);
+            $('#date').append(`Quando: ${data['date']}`);
+            $('#bookTitle')
+                .append(`Libro: <a href="bookPage.html?isbn=${data['Book']['isbn']}">${data['Book']['name']}</a>`);
 
             $('#map').append(`
                   <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
-                        <iframe src="https://maps.google.com/maps?q=${data['location']}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        <iframe src="https://maps.google.com/maps?q=${encodeURI(data['location'])}&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                 frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 `)
             }
-            // TODO addare info relative al libro e all'autore e il LINK al libro
-
-    });
-
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book",
-
-        success: function (data) {
-
-            for (i = 0; i < data.length; i++) {
-
-                $('#authorsDropdown').append(
-                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
-                )
-
-            }
-
-        }
     });
 
 </script>
