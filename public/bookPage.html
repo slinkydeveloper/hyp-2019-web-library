@@ -37,7 +37,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="allEvent.html">Eventi</a>
+                <a class="nav-link" href="events.html">Eventi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
@@ -127,7 +127,7 @@
             $('#bookTheme').append(`Tema: ${data['Theme']['name']}`);
             $('#bookPrice').append(`Prezzo: ${data['price']}€`);
 
-            if (data['BookEvent'] !== undefined) {
+            if (data['BookEvent'] !== undefined && data['BookEvent'] !== null) {
                 $('#bookEvent')
                     .append(`Evento correlato: <a href="event.html?id=${data['BookEvent']['id']}">Presentazione del libro ${data['name']} a "${data['BookEvent']['location']}"</a>`);
             }
@@ -135,7 +135,7 @@
             $('#bookImage')
                 .append(`<img class="img-thumbnail" src="http://covers.openlibrary.org/b/isbn/${data['isbn']}-L.jpg">`);
 
-            if (data['Related'] !== undefined) {
+            if (data['Related'] !== undefined && data['Related'] !== null) {
 
                 data['Related'].forEach(function (relatedBook) {
                     $('#bookEvents')

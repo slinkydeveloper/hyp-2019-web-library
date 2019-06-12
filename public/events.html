@@ -44,7 +44,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="allEvent.html">Eventi</a>
+                <a class="nav-link" href="events.html">Eventi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
@@ -81,108 +81,101 @@
         <div class="col-md-12">
 
             <div class="jumbotron">
-                <h1 class="display-4"><i class="fa fa-calendar-o" aria-hidden="true"></i> Qui puoi vedere gli eventi
-                    presenti sul nostro sito</h1>
-                <p class="lead">Ogni evento ha una sua pagina così potrai trovare tutte le informazioni che cerchi</p>
+                <h1><i class="fa fa-calendar-o" aria-hidden="true"></i> Presentazioni dei nostri libri</h1>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-brand btn" onclick="loadAllEvents()">Tutti gli eventi</button>
+                    <button class="navbar-brand btn" onclick="loadThisMonthEvents()">Eventi in questo mese</button>
+                </nav>
             </div>
         </div>
     </div>
 
-
-    <!--Grid row-->
-    <div class="row no-gutters" >
-        <!--Grid column-->
-        <div class="col-lg-5 col-md-5 col-sm-6 mb-4  " >
-            <div class="jumbotron " id="allEventId">
-                <!--Card-->
-                <div>
-                    <!--Card image-->
-                    <div class="view view-cascade gradient-card-header peach-gradient">
-
-                    </div>
-                    <!--/Card image-->
-
-                    <!--Card content-->
-                    <div class="card-body card-body-cascade">
-
-                    </div>
-                    <!--/.Card content-->
-
-                </div>
-                <!--/.Card-->
-            </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-lg-5 col-md-5 col-sm-6 mb-4 offset-md-1 offset-lg-1 ">
-            <div class="jumbotron ">
-                <!--Card-->
-                <div>
-                    <!--Card image-->
-
-                </div>
-                <!--/.Card-->
-            </div>
-        </div>
-        <!-- TODO controllare questa pagina quando fra avrà aggiunto altri eventi -->
-    </div>
+    <div id="events"></div>
 </div>
-
-
-<script src="filter.js"></script>
 
 <script>
 
+    function renderBooks(data) {
 
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/bookEvent",
-        //data: data, // sto mandando
-        success: function (data) { // sto ricevendo
+        $("#events").empty();
 
-            for (i = 0; i < data.length; i++) {
+        for (i = 0; i < data.length; i += 2) {
+            var newRow = $(`<div class="row"></div>`);
+            // Add first element of row
+            newRow.append(`
+                <div class="col-md-6 mb-4">
+                    <div class="jumbotron">
+                        <div class="view view-cascade gradient-card-header peach-gradient" >
+                            <h5 class="mb-0 text-center">Presentazione di "${data[i]['Book']['name']}"</h5>
+                        </div>
 
-
-                // backtick ` variabili tra ${variabile}
-                // per chiamare i dati  ${data[i]['name']}
-                $('#allEventId').append(`
-                    <div>
-
-                    <div class="view view-cascade gradient-card-header peach-gradient" >
-                    <h5 class="mb-0 text-center">Evento n: ${data[i]['id']}</h5>
-                    </div>
-
-                    <div class="card-body card-body-cascade" >
-                    <p>Presentato da: ${data[i]['presenter']} </p>
-                        <p>Dove si svolgerà ? ${data[i]['location']}</p>
-                        <p>Data: ${data[i]['date']}</p>
-                         <a href="event.html?idEvent=${data[i]['id']}" class="inner_color_link"><button type="button" class="btn btn-primary">Guarda nei dettagli l'evento</button></a>
+                        <div class="card-body card-body-cascade" >
+                            <p>Presentato da: ${data[i]['presenter']} </p>
+                            <p>Dove: ${data[i]['location']}</p>
+                            <p>Quando: ${data[i]['date']}</p>
+                            <a href="event.html?id=${data[i]['id']}" class="inner_color_link">
+                                <button type="button" class="btn btn-primary">Guarda i dettagli dell'evento</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
+                `);
+            // Add second element of row if present
+            if (i + 1 < data.length) {
+                newRow.append(`
+                <div class="col-md-6 mb-4">
+                    <div class="jumbotron">
+                        <div class="view view-cascade gradient-card-header peach-gradient" >
+                            <h5 class="mb-0 text-center">Presentazione di "${data[i + 1]['Book']['name']}"</h5>
+                        </div>
 
+                        <div class="card-body card-body-cascade" >
+                            <p>Presentato da: ${data[i + 1]['presenter']} </p>
+                            <p>Dove: ${data[i + 1]['location']}</p>
+                            <p>Quando: ${data[i + 1]['date']}</p>
+                            <a href="event.html?id=${data[i + 1]['id']}" class="inner_color_link">
+                                <button type="button" class="btn btn-primary">Guarda i dettagli dell'evento</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 `);
             }
+
+            // add new row to div
+            newRow.appendTo($(`#events`));
         }
-//TODO addare filtri eventi del mese
+
+    }
+
+    function loadAllEvents() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/api/bookEvent",
+            success: renderBooks
         });
+    }
 
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://hyp-2019-library.herokuapp.com/api/book",
+    function loadThisMonthEvents() {
+        var fromDateFormatted = formatDate(new Date());
+        var toDate = new Date();
+        toDate.setMonth(toDate.getMonth() + 1);
+        var toDateFormatted = formatDate(toDate);
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/api/bookEvent?from=" + fromDateFormatted + "&to=" + toDateFormatted,
+            success: renderBooks
+        });
+    }
 
-        success: function (data) {
+    function formatDate(d) {
+        return "" + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()
+    }
 
-            for (i = 0; i < data.length; i++) {
+    loadAllEvents();
 
-                $('#authorsDropdown').append(
-                    ` <a class="dropdown-item" href="author.html?id=${data[i]['Author']['id']}">${data[i]['Author']['name']}</a>`
-                )
-
-            }
-
-        }
-    });
 </script>
 
 </body>

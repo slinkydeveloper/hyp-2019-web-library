@@ -294,7 +294,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/BookEvent"
+                  $ref: "#/components/schemas/ExpandedBookEvent"
   /book/{bookId}:
     get:
       operationId: getBook
