@@ -18,6 +18,16 @@ html, body {
     transform: translateX(-50%) translateY(-50%);
 }
 
+.img-thumbnail-books {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: 350px;
+}
+
+
 .padding_top{
     padding-top: 15%;
 }
@@ -61,6 +71,7 @@ html, body {
 
 .margin_top_h5{
     margin-top: 10px;
+    height: 20px;
 }
 .jumbotron_info{
     margin-top: 50px;
@@ -90,16 +101,15 @@ html, body {
     width:100%;
     position:absolute;
 }
-/*TODO addare questa classeeeeeeeee*/
+
 .container {
     overflow: hidden;
 }
-/*TODO addare questa classeeeeeeeee*/
+
 .filterDiv {
     display: none; /* Hidden by default */
 }
-/*TODO addare questa classeeeeeeeee*/
-/* The "show" class is added to the filtered elements */
+
 .show {
     display: block;
 }
@@ -123,6 +133,10 @@ html, body {
 }
 
 #myInput:focus {outline: 3px solid #ddd;}
+
+.book_autor{
+    margin-top: 20px;
+}
 
 .dropdown {
     position: relative;

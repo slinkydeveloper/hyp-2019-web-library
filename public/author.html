@@ -63,17 +63,18 @@
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="jumbotron margin_top_event" id="jumbotronAuthor">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4 col-lg-4" id="authorImage">
-                    </div>
 
-                    <div class="col-lg-8 col-md-12 col-sm-8">
-                        <h3 id="authorName"></h3>
+                    <div class="col-12 col-md-4 col-lg-4" id="authorImage">
+                    </div>
+                    <div class="col-8  col-md-7 col-md-12 ">
+                        <h3  class="book_autor" id="authorName"></h3>
                         <p id="authorDescription"></p>
                     </div>
 
+
+                <div id="books" >
+                    <h3 class="book_autor">Libri dell'autore</h3>
                 </div>
-                <div id="books"></div>
             </div>
         </div>
     </div>
@@ -121,7 +122,7 @@
         success: function (data) {
             data.forEach(function (book) {
                 $('#books').append(`
-                    <div class="col-lg-2 col-md-2 col-3">
+                    <div class="col-5  col-md-4 col-lg-2 ">
                         <div>
                             <p class="text-center"><a href="book.html?isbn=${book['isbn']}">${book['name']}</a></p>
                             <a href="book.html?isbn=${book['isbn']}">
