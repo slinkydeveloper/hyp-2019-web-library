@@ -18,7 +18,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<!-- TODO ricorda di aggiornarla sempre -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand">Libri per tutti</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -45,20 +45,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                      aria-hidden="true"></i> Carrello</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Usability
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Accessibility</a>
-                    <a class="dropdown-item" href="#">Structure</a>
-                    <a class="dropdown-item" href="#">Responsivity</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                                                                   aria-hidden="true"></i> Carrello</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -68,14 +55,14 @@
     </div>
 </nav>
 
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white">
     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
     <li class="breadcrumb-item active">Autori</li>
 </ol>
 
-<div class="container margin_top_event">
+<div class="container margin_top_event font-weight-light">
     <div class="jumbotron">
-        <h1 class="display-4"><i class="fa fa-users" aria-hidden="true"></i> Qui puoi vedere gli autori presenti sul
+        <h1 class="display-4 font-weight-light"><i class="fa fa-users" aria-hidden="true"></i> Qui puoi vedere gli autori presenti sul
             nostro sito</h1>
         <p class="lead">Ogni autore ha una sua pagina così potrai trovare tutte le informazioni che cerchi</p>
     </div>
@@ -124,11 +111,13 @@
         success: function (data) {
             for (i = 0; i < data.length; i++) {
                 $('#containerAutori').append(`
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 margin_login">
+
+                    <h4 class="margin_top_h5 text-center"><a href="author.html?id=${data[i]['id']}" class="text-dark" >${data[i]['name']}</a></h4>
+
                     <a href="author.html?id=${data[i]['id']}">
                         <img class="img-thumbnail authors-image mx-auto d-block" src="/assets/img/author/${data[i]['id']}.jpg">
                     </a>
-                    <h4 class="margin_top_h5"><a href="author.html?id=${data[i]['id']}" class="text-dark" >${data[i]['name']}</a></h4>
                     </div>
                 `);
             }

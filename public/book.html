@@ -38,20 +38,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                      aria-hidden="true"></i> Carrello</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Usability
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Accessibility</a>
-                    <a class="dropdown-item" href="#">Structure</a>
-                    <a class="dropdown-item" href="#">Responsivity</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                                                                   aria-hidden="true"></i> Carrello</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -61,14 +48,14 @@
     </div>
 </nav>
 
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white">
     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
     <li class="breadcrumb-item"><a href="books.html">Libri</a></li>
     <li class="breadcrumb-item active">Libro</li>
 </ol>
 
 
-<div class="container margin_top_event">
+<div class="container margin_top_event font-weight-light">
     <div class="row jumbotron">
         <div class="col-sm-4 col-md-4 col-lg-4" id="bookPhoto">
             <div id="bookImage"></div>
@@ -132,7 +119,7 @@
 
             if (data['BookEvent'] !== undefined && data['BookEvent'] !== null) {
                 $('#bookEvent')
-                    .append(`Evento correlato: <a href="event.html?id=${data['BookEvent']['id']}">Presentazione del libro ${data['name']} a "${data['BookEvent']['location']}"</a>`);
+                    .append(`<i class="fa fa-calendar-o" aria-hidden="true"></i>  Evento correlato: <a href="event.html?id=${data['BookEvent']['id']}">Presentazione del libro ${data['name']} a "${data['BookEvent']['location']}"</a>`);
             }
 
             $('#bookImage')

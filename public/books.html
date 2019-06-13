@@ -42,20 +42,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                      aria-hidden="true"></i> Carrello</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Usability
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Accessibility</a>
-                    <a class="dropdown-item" href="#">Structure</a>
-                    <a class="dropdown-item" href="#">Responsivity</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                                                                   aria-hidden="true"></i> Carrello</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -65,19 +52,19 @@
     </div>
 </nav>
 
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color: white">
     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
     <li class="breadcrumb-item active">Libri</li>
 </ol>
 
-<div class="container divisor for_dropdown_in_container">
-    <div class="jumbotron" id="menuFilter">
+<div class="container divisor for_dropdown_in_container font-weight-light">
+    <div class="jumbotron " id="menuFilter">
 
-        <h1><i class="fa fa-book"></i>Galleria online di libri</h1>
+        <h1 class="font-weight-light display-4"><i class="fa fa-book"></i>  Galleria online di libri</h1>
         <p>Sfoglia i libri a tua disposizione</p>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myBtnContainer">
-            <button class="navbar-brand btn" onclick="loadBooksAndRender('/api/book')">Tutti i libri</button>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <button class="navbar-brand btn font-weight-light"  onclick="loadBooksAndRender('/api/book')">Tutti i libri</button>
+            <button class="navbar-toggler font-weight-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -86,10 +73,10 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <button class="btn" onclick="loadBooksAndRender('/api/book?staffpicks=true')">Letture consigliate</button>
+                        <button class="btn font-weight-light" onclick="loadBooksAndRender('/api/book?staffpicks=true')">Letture consigliate</button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn" onclick="loadBooksAndRender('/api/book?bestseller=true')">Best sellers del mese</button>
+                        <button class="btn font-weight-light" onclick="loadBooksAndRender('/api/book?bestseller=true')">Best sellers del mese</button>
                     </li>
                     <li class="nav-item dropdown" id="themesDropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -158,7 +145,7 @@
                 $('#themesDropdownMenu').empty();
 
                 data.forEach(function(item) {
-                    $('#themesDropdownMenu').append(`<a class="dropdown-item" onclick="loadBooksAndRender('/api/book?theme=${item.id}')">${item.name}</a>`)
+                    $('#themesDropdownMenu').append(`<a class="dropdown-item font-weight-light" onclick="loadBooksAndRender('/api/book?theme=${item.id}')">${item.name}</a>`)
                 });
             }
         });
@@ -175,7 +162,7 @@
                 $('#genresDropdownMenu').empty();
 
                 data.forEach(function(item) {
-                    $('#genresDropdownMenu').append(`<a class="dropdown-item" onclick="loadBooksAndRender('/api/book?genre=${item.id}')">${item.name}</a>`)
+                    $('#genresDropdownMenu').append(`<a class="dropdown-item font-weight-light" onclick="loadBooksAndRender('/api/book?genre=${item.id}')">${item.name}</a>`)
                 });
             }
         });
