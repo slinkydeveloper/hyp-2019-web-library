@@ -58,7 +58,7 @@
 <div class="container margin_top_event margin_event font-weight-light">
     <div class="jumbotron ">
         <section class="section pb-5">
-            <h2 class="section-heading h1 pt-4" id="titleEvent"><i class="fa fa-calendar" aria-hidden="true"></i></h2>
+            <h2 class="section-heading h1 pt-4 font-weight-light" id="titleEvent"><i class="fa fa-calendar" aria-hidden="true"></i></h2>
             <div class="row">
                 <div class="col-lg-5 mb-4">
                     <div class="card">
@@ -100,7 +100,7 @@
         dataType: "json",
         url: "/api/bookEvent/" + idEvent,
         success: function (data) {
-            $('#titleEvent').append(` Presentazione del libro ${data['Book']['name']} a "${data['location']}`);
+            $('#titleEvent').append(` Presentazione del libro ${data['Book']['name']} a "${data['location']}"`);
             $('#relator').append(`Presenta: ${data['presenter']}`);
             $('#location').append(`Dove: ${data['location']}`);
             $('#date').append(`Quando: ${data['date']}`);
