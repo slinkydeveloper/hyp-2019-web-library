@@ -61,11 +61,11 @@
             <div id="bookImage"></div>
         </div>
         <div class="col-sm-8 col-md-8 col-lg-8">
-            <h3 id="bookTitle"></h3>
-            <h4 id="bookAuthor"></h4>
-            <h4 id="bookGenre"></h4>
-            <h4 id="bookTheme"></h4>
-            <p id="bookPrice"></p>
+            <h3 class="font-weight-light" id="bookTitle"></h3>
+            <h4 class="font-weight-light"id="bookAuthor"></h4>
+            <h4 class="font-weight-light" id="bookGenre"></h4>
+            <h4 class="font-weight-light" id="bookTheme"></h4>
+            <p  id="bookPrice"></p>
             <p id="bookDescription"></p>
             <p id="bookEvent"></p>
 
@@ -78,10 +78,10 @@
         </div>
     </div>
     <div class="jumbotron margin_top_event">
-        <h4>
-            <i class="fa fa-eye" aria-hidden="true"></i>Guarda altri libri che potrebbero interessarti
+        <h4 class="font-weight-light">
+            <i class="fa fa-eye" aria-hidden="true"></i>  Guarda altri libri che potrebbero interessarti
         </h4>
-        <div class="row" id="bookEvents"></div>
+        <div class="row font-weight-light"  id="bookEvents"></div>
     </div>
 </div>
 
@@ -131,7 +131,7 @@
                     $('#bookEvents')
                         .append(`
                         <div class="col-6 col-sm-6 col-md-2 col-lg-2" >
-                            <h5 class="margin_top_h5">
+                            <h5 class="margin_top_h5 font-weight-light">
                                 <a href="book.html?isbn=${relatedBook['isbn']}" class="text-dark">${relatedBook['name']}</a>
                             </h5>
                             <div>
