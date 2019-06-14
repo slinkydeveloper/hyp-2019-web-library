@@ -38,8 +38,6 @@ The presentation layer is implemented through the frontend component. This compo
 
 #### REST compliance
 
-
-
 Describe here to what extent did you follow REST principles and what are the
 reasons for which you might have decided to diverge. Note, you must not describe
 the whole API here, just the design decisions.
@@ -71,7 +69,7 @@ There are also 2 models for login/registration phase:
 
 ### Data model
 
-![](library_final.png)
+![](er.png)
 
 Most of those relations map seamlessly to REST resources, but there are few considerations:
 
@@ -178,3 +176,9 @@ Francesco learnt:
 * How to implement the API following a contract
 * How to use an ORM to create complex queries and map database tables to ORM models
 * How to implement AuthN/Z using session
+
+Miranda learnt:
+
+* How to design a web page using Web techs and popular libraries
+* How to implement AJAX requests using JQuery
+* How to dynamically modify DOM using JQuery
