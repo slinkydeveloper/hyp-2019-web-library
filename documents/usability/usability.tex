@@ -1,0 +1,354 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage[margin=1.2in]{geometry}
+
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+ 
+       {\huge \textbf{Libri dal mondo}}
+ 
+       \vspace{0.5cm}
+        {\Large Progetto di Hypermedia Applications}
+        
+        \vspace{0.5cm}
+        {\large{Documento di valutazione Usability}}
+        
+       \vspace{0.5cm}
+        Consegna 20/06/19
+ 
+       \vspace{1cm}
+ 
+       \textbf{Francesco Guardiani - 867616 -  \href{mailto:francesco.guardiani@mail.polimi.it}{francesco.guardiani@mail.polimi.it}}
+       
+      \textbf{Miranda Mucignat - 846693 -  \href{mailto:miranda.mucignat@mail.polimi.it}{miranda.mucignat@mail.polimi.it}}
+ 
+   \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\chapter{Lo studio}
+
+\section{Informazioni sullo studio}
+
+Questo report è stato redatto in seguito a un processo di user testing, in cui i tester hanno dovuto:
+
+\begin{enumerate}
+	\item Eseguire dei task a loro assegnati seguendo degli scenari, mentre vengono valutati in base a dei criteri specifici.
+	\item Ispezionare liberamente il website per rispondere a un modulo contentente domande riguardo l'utilizzabilità del website
+	\item Dare un feedback generale sul website
+\end{enumerate}
+
+\section{Utenti}
+
+Gli utenti presi in considerazione sono:
+
+\begin{itemize}
+	\item Uomo giovane
+	\item Donna giovane
+	\item Uomo adulto
+	\item Donna adulta
+\end{itemize}
+
+\newpage
+
+\section {Scenari}
+
+In seguito vengono descritti gli scenari presi in considerazione per l'\textit{User testing}
+
+\subsection{Scenario 1}
+
+Sei un potenziale acquirente di libri e sei interessato ad informarti di più sui libri a disposizione su \textit{Libri per tutti}.\\
+
+\begin{enumerate}
+	\item Consulta i libri a disposizione
+	\item Consulta un libro che trovi interessante
+	\item Contatta \textit{Libri per tutti}
+\end{enumerate}
+
+\subsection{Scenario 2}
+
+Sei interessato a scoprire nuovi autori grazie a \textit{Libri dal mondo}.\\
+
+\begin{enumerate}
+	\setcounter{enumi}{3}
+	\item Consulta tutti gli autori a disposizione
+	\item Consulta un autore che non conosci
+	\item Ordina un libro interessante per quell'autore
+\end{enumerate}
+
+\subsection{Scenario 3}
+
+Sei interessato a partecipare ad eventi di presentazione di libri organizzati da \textit{Libri dal mondo}.\\
+
+\begin{enumerate}
+	\setcounter{enumi}{6}
+	\item Consulta tutti gli eventi organizzati e filtrali per il mese attuale
+	\item Trova un evento interessante
+	\item Ordina il libro presentato durante l'evento
+\end{enumerate}
+
+\newpage
+
+\section{Metriche di valutazione dei task}
+
+Per valutare l'esecuzione dei task da parte dell'utente abbiamo scelto di adottare le seguenti metriche:
+
+\begin{itemize}
+	\item Tempo di esecuzione del task
+	\item Success rate
+	\item Errori (click errati) durante l'esecuzione
+	\item Difficoltà percepita da 1 a 5
+\end{itemize}
+
+Durante la prova il moderatore del test non è intervenuto in alcun modo per aiutare i tester nell'esecuzione del task.
+
+\section{Domande del modulo di ispezione}
+
+Dopo aver eseguito i task, all'utente è stato chiesto di rispondere alle seguenti domande con un punteggio da 1 a 5: \\
+
+\begin{tabular}{|l|l|p{8cm}|}
+	\hline
+	\textbf{Codice} & \textbf{Categoria} & \textbf{Domanda} \\ \hline
+	1.1 & Landmarks/Navigazione & Quanto hai trovato utile la menu bar (i landmarks) in cima alle pagine? \\
+	1.2 & Landmarks/Navigazione & Quanto è stato semplice navigare tra i libri di un determinato autore? \\
+	1.3 & Landmarks/Navigazione & Quanto è stato semplice navigare tra i libri consigliati? \\
+	1.4 & Landmarks/Navigazione & Quanto è stato semplice trovare libri per autori? \\
+	1.5 & Landmarks/Navigazione & Quanto è stato semplice trovare libri per generi? \\
+	2.1 & Contenuti & Quanto hai trovato interessanti i libri consigliati? \\
+	2.2 & Contenuti & Trovi che i contenuti dei singoli libri siano sufficienti? \\
+	2.2 & Contenuti & Trovi che i contenuti dei singoli autori siano sufficienti? \\
+	3.1 & Layout & Trovi leggibile il testo? \\
+	3.2 & Layout & Trovi adatta la dimensione delle immagini? \\
+	3.3 & Layout & Trovi consistente il layout delle pagine in tutto il website? \\
+	3.4 & Layout & Trovi che i contenuti \textit{semanticamente} vicini siano \textit{spazialmente} vicini? \\
+	\hline
+\end{tabular}
+\captionof{table}{Tabella con le domande di valutazione}\label{valutation_table}
+
+\newpage
+
+\chapter{Risultati dello user testing}
+
+\section{Esecuzione dei task}
+
+{\centering
+\captionof{table}{Valutazione esecuzione task di \textbf{Uomo giovane}}
+\centering
+\begin{tabular}{lllll} 
+	\toprule
+	\textbf{Task} & \textbf{Tempo (s)} & \textbf{Successo} & \begin{tabular}[c]{@{}l@{}}\textbf{Errori}\\\textbf{commessi}\end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Difficoltà}\\\textbf{Percepita}\end{tabular}  \\
+	1             & 20                 & Successo          & 0                                                                          & 1                                                                                \\
+	2             & 20                 & Successo          & 1                                                                          & 1                                                                                \\
+	3             & 40                 & Parziale          & 1                                                                          & 2                                                                                \\
+	4             & 25                 & Successo          & 0                                                                          & 1                                                                                \\
+	5             & 20                 & Successo          & 1                                                                          & 1                                                                                \\
+	6             & 90                 & Successo          & 3                                                                          & 3                                                                                \\
+	7             & 30                 & Successo          & 0                                                                          & 1                                                                                \\
+	8             & 40                 & Successo          & 0                                                                          & 1                                                                                \\
+	9             & 60                 & Successo          & 2                                                                          & 2                                                                                \\
+	\bottomrule
+\end{tabular}
+
+\vspace{1cm}
+
+\captionof{table}{Valutazione esecuzione task di \textbf{Donna giovane}}
+\begin{tabular}{lllll} 
+	\toprule
+	\textbf{Task} & \textbf{Tempo (s)} & \textbf{Successo} & \begin{tabular}[c]{@{}l@{}}\textbf{Errori}\\\textbf{commessi}\end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Difficoltà}\\\textbf{Percepita}\end{tabular}  \\
+	1             & 15                 & Successo          & 0                                                                          & 1                                                                                \\
+	2             & 15                 & Successo          & 0                                                                          & 1                                                                                \\
+	3             & 45                 & Successo          & 2                                                                          & 3                                                                                \\
+	4             & 25                 & Successo          & 0                                                                          & 1                                                                                \\
+	5             & 30                 & Successo          & 0                                                                          & 2                                                                                \\
+	6             & 90                 & Parziale          & 1                                                                          & 3                                                                                \\
+	7             & 35                 & Successo          & 0                                                                          & 1                                                                                \\
+	8             & 35                 & Successo          & 1                                                                          & 2                                                                                \\
+	9             & 50                 & Successo          & 2                                                                          & 3                                                                                \\
+	\bottomrule
+\end{tabular}
+
+\newpage
+
+\captionof{table}{Valutazione esecuzione task di \textbf{Uomo Adulto}}
+\begin{tabular}{lllll} 
+	\toprule
+	\textbf{Task}  & \textbf{Tempo (s)}  & \textbf{Successo}  & \begin{tabular}[c]{@{}l@{}}\textbf{Errori}\\\textbf{commessi} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Difficoltà}\\\textbf{Percepita} \end{tabular}  \\
+	1               & 25                  & Successo           & 0                                                                           & 1                                                                                 \\
+	2               & 15                  & Successo           & 0                                                                           & 2                                                                                 \\
+	3               & 60                  & Successo           & 3                                                                           & 3                                                                                 \\
+	4               & 30                  & Successo           & 0                                                                           & 1                                                                                 \\
+	5               & 40                  & Successo           & 0                                                                           & 3                                                                                 \\
+	6               & 110                 & Parziale           & 4                                                                           & 4                                                                                 \\
+	7               & 40                  & Successo           & 0                                                                           & 1                                                                                 \\
+	8               & 35                  & Successo           & 0                                                                           & 2                                                                                 \\
+	9               & 45                  & Successo           & 0                                                                           & 2                                                                                 \\
+	\bottomrule
+\end{tabular}
+
+\vspace{1cm}
+
+\captionof{table}{Valutazione esecuzione task di \textbf{Donna Adulta}}
+\begin{tabular}{lllll} 
+	\toprule
+	\textbf{Task}  & \textbf{Tempo (s)}  & \textbf{Successo}  & \begin{tabular}[c]{@{}l@{}}\textbf{Errori}\\\textbf{commessi} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Difficoltà}\\\textbf{Percepita} \end{tabular}  \\
+	1               & 20                  & Successo           & 0                                                                           & 1                                                                                 \\
+	2               & 20                  & Successo           & 0                                                                           & 1                                                                                 \\
+	3               & 55                  & Successo           & 1                                                                           & 2                                                                                 \\
+	4               & 35                  & Successo           & 0                                                                           & 1                                                                                 \\
+	5               & 35                  & Successo           & 0                                                                           & 1                                                                                 \\
+	6               & 80                  & Parziale           & 4                                                                           & 5                                                                                 \\
+	7               & 40                  & Successo           & 0                                                                           & 1                                                                                 \\
+	8               & 40                  & Successo           & 0                                                                           & 1                                                                                 \\
+	9               & 60                  & Parziale           & 1                                                                           & 2                                                                                 \\
+	\bottomrule
+\end{tabular}
+
+}
+
+\newpage
+
+\section{Risultati dei task}
+
+{\centering
+\captionof{table}{Media delle metriche dei task}
+\begin{tabular}{llll} 
+	\toprule
+	\textbf{Task}  & \textbf{Tempo medio (s)}  & \begin{tabular}[c]{@{}l@{}}\textbf{Errori}\\\textbf{commessi}\\\textbf{medi} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Difficoltà}\\\textbf{Percepita}\\\textbf{media} \end{tabular}  \\
+	1               & 20                        & 0                                                                                          & 1                                                                                                 \\
+	2               & 17.5                      & 0.25                                                                                       & 1.25                                                                                              \\
+	3               & 50                        & 1.75                                                                                       & 2.5                                                                                               \\
+	4               & 28.75                     & 0                                                                                          & 1                                                                                                 \\
+	5               & 31.25                     & 0.25                                                                                       & 1.75                                                                                              \\
+	6               & 80                        & 3                                                                                          & 3.75                                                                                              \\
+	7               & 40                        & 0                                                                                          & 1                                                                                                 \\
+	8               & 40                        & 0.25                                                                                       & 1.5                                                                                               \\
+	9               & 60                        & 1.25                                                                                       & 2.25                                                                                              \\
+	\bottomrule
+\end{tabular}
+
+\captionof{table}{Media delle metriche degli scenari}
+\begin{tabular}{llll} 
+	\toprule
+	\textbf{Scenario}  & \textbf{Tempo medio (s)}  & \begin{tabular}[c]{@{}l@{}}\textbf{Errori}\\\textbf{commessi}\\\textbf{medi} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Difficoltà}\\\textbf{Percepita}\\\textbf{media} \end{tabular}  \\
+	1                   & 29.17                     & 0.67                                                                                       & 1.58                                                                                              \\
+	2                   & 46.67                     & 0.81                                                                                       & 1.62                                                                                              \\
+	3                   & 46.67                     & 0.5                                                                                        & 1.58                                                                                              \\
+	\bottomrule
+\end{tabular}
+
+}
+
+\vspace{1cm}
+
+Il success rate totale dei test è stato $ 93\% $
+
+\vspace{1cm}
+
+Da questi dati si evince che gli scenario più dispendiosi di tempo sono stati gli scenari 2 e 3. Tra questi, lo scenario più difficile e \textit{error prone} è risultato lo scenario 2.
+
+\newpage
+
+\section{Risultati del modulo d'ispezione}
+
+{\centering
+
+\captionof{table}{Risultati dei moduli d'ispezione per singola domanda}
+\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}l} 
+	\toprule
+	\textbf{Codice}  & \textbf{Uomo Giovane} & \textbf{Donna Giovane} & \textbf{Uomo Adulto} & \textbf{Donna Adulta} & \textbf{Media}  \\
+	1.1              & 4                     & 5                      & 4                     & 3                      & 4               \\
+	1.2              & 5                     & 4                      & 4                     & 4                      & 4.25            \\
+	1.3              & 3                     & 4                      & 3                     & 3                      & 3.25            \\
+	1.4              & 3                     & 4                      & 5                     & 4                      & 4               \\
+	1.5              & 2                     & 3                      & 5                     & 2                      & 3               \\
+	2.1              & 1                     & 2                      & 2                     & 4                      & 2.25            \\
+	2.2              & 1                     & 1                      & 1                     & 1                      & 1               \\
+	2.3              & 2                     & 1                      & 1                     & 2                      & 1.5             \\
+	3.1              & 3                     & 5                      & 4                     & 4                      & 4               \\
+	3.2              & 3                     & 3                      & 2                     & 2                      & 2.5               \\
+	3.3              & 4                     & 5                      & 3                     & 4                      & 4               \\
+	3.4              & 2                     & 3                      & 3                     & 4                      & 3               \\
+	\bottomrule
+\end{tabular}
+
+\captionof{table}{Risultati dei moduli d'ispezione per categoria}
+\begin{tabular}{p{5cm}l} 
+	\toprule
+	\textbf{Categoria}  & \textbf{Media}  \\
+	Landmarks/Navigazione & 3.7 \\
+	Contenuti & 1.58 \\
+	Layout & 3.38 \\
+	\bottomrule
+\end{tabular}
+
+}
+
+\vspace{1cm}
+
+I risultati di questo test dimostrano i contenuti del website, con un punteggio medio di $ 1.58/5 $, hanno un largo margine di miglioramento. La navigazione, con un punteggio medio di $ 3.7/5 $, è soddisfacente per la maggior parte dei tester. Tra le domande riguardante il layout, le immagini sono risultate il punto debole del website.
+
+\chapter{Conclusioni}
+
+Qui di seguito sono riportate le conclusioni del report, incluso il feedback degli utenti. \\
+
+I punti di forza di \textit{Libri dal mondo} sono:
+
+\begin{itemize}
+	\item Come viene riportato da entrambi i test (task user testing e ispezione), il layout semplice e consistente tra le pagine permette agli utenti di trovare abbastanza velocemente i contenuti
+	\item Le funzionalità di navigazione, grazie ai landmark e i breadcrumbs, sono spesso in grado di soddisfare le richieste dell'utente. Questo viene dimostrato dai risultati dell'ispezione
+	\item Tutti gli utenti, come riporta il risultato dei task, hanno trovato usabile il la pagina dove poter consultare tutti i libri a disposizione e filtrarli
+\end{itemize}
+
+Di seguito vengono riportate le criticità del website e delle possibili soluzioni.
+
+\section{Povero di contenuti testuali}
+
+Sia il modulo di ispezione che il feedback finale degli utenti ha sottolineato la povertà di contentuti informativi testuali. \\
+Questa criticità è stata riscontrata nelle pagine dei singoli libri e dei singoli autori.\\
+In particolare i tester hanno sottolineato:
+
+\begin{itemize}
+	\item Gli utenti giovani hanno sottolineato la mancanza del numero di pagine dei libri e il formato dei libri
+	\item La donna giovane ha consigliato di aggiungere i link a Wikipedia nelle pagine degli autori, quando possibile
+	\item La donna adulta ha notato che nella biografia degli autori spesso non sono citati i libri famosi di quell'autore, anche se non presenti sul website
+\end{itemize}
+
+Queste criticità possono essere risolte inserendo nuovi campi nella base di dati e migliorando la visualizzazione di queste informazioni (ingrandendo il font, formattando il testo, etc...), valorizzando le informazioni effettivamente presenti. \\
+
+Nota: questa criticità non è stata dimostrata dai test dei task singoli
+
+\section{Copertine libri troppo piccole nella pagina dell'autore singolo}
+
+Sia dalle analisi dei task che dalle domande d'ispezione, le copertine dei libri nella pagine del singolo autore sono troppo piccole e/o mancano di una funzione di zoom. \\
+Questo è stato dimostrato in particolare dai tester adulti: questi, trovando difficoltà a vedere alcune copertine, hanno aperto le rispettive pagine dei libri, dove l'immagine di copertina è mostrata più grande. Questo spiega sia il tempo totale di esecuzione del task \textit{6} molto alto rispetto agli altri task, sia il punteggio basso della domanda \textit{3.2} nel modulo d'ispezione.\\
+
+Le possibili soluzioni sono:
+
+\begin{itemize}
+	\item Implementare una funzione di zoom on hover del mouse, simile ad una lente d'ingrandimento
+	\item Ingrandire le immagini di copertina, diminuendo il numero di libri mostrati in una riga
+\end{itemize}
+
+\section{Navigazione non chiara nella pagina degli eventi}
+
+Nell'analisi dei task e da un feedback del tester \textit{donna giovane} è emerso che non è immediatamente chiaro il funzionamento dei filtri della pagina con tutti gli eventi a disposizione. \\
+Nel dettaglio, gli utenti hanno riscontrato difficoltà a capire se, nel momento in cui si finisce su questa pagina, gli eventi già mostrati siano filtrati per \textit{"Eventi in questo mese"} o meno. \\
+Inoltre la \textit{donna adulta} ha chiesto se sia possibile aggiungere un filtro più complesso che permette all'utente di scegliere da un calendario le date "da"-"a". \\
+
+I possibili interventi sono:
+
+\begin{itemize}
+	\item L'aggiunta di un filtro che ti permette di selezionare manualmente le date
+	\item Evidenziare il button \textit{"Tutti gli eventi"} quando la pagina viene aperta
+\end{itemize}
+
+\end{document}
