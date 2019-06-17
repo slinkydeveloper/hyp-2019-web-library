@@ -1,34 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Carrello</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/stylesheetPages.css" type="text/css">
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/stylesheetPages.css" rel="stylesheet">
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">LIBRI DAL M<i class="fa fa-globe" aria-hidden="true"></i>ND<i class="fa fa-globe" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">LIBRI DAL MONDO</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -43,19 +36,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                   aria-hidden="true"></i> Carrello</a>
-            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
-            <li><a href="login.html"> Login</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="bookReservation.html">
+                    <i aria-hidden="true" class="fa fa-shopping-cart"></i> Carrello
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item space_menu">
+                <a class="nav-link" href="signUp.html">Sign Up</a>
+            </li>
         </ul>
     </div>
 </nav>
-
-
 
 <div class="container font-weight-light">
     <ol class="breadcrumb" style="background-color: white">
@@ -64,21 +60,20 @@
     </ol>
     <div style="float: left;" class="size_body_70">
         <div style="margin-top: 30px">
-            <div class="jumbotron ">
+            <div class="jumbotron">
                 <div class="row no-gutters">
-
                     <div class="col-3  col-md-6 col-lg-4 ">
                         <img src="https://images-na.ssl-images-amazon.com/images/I/81-rFz8tlcL.jpg"
-                             class="float-left imgReservation" alt="...">
+                             class="float-left imgReservation">
                     </div>
 
-                    <div class="col-12   col-md-6 col-lg-4 title_margin">
+                    <div class="col-12 col-md-6 col-lg-4 title_margin">
                         <h3 >Harry Potter e la pietra filosofale</h3>
                         <h4 class="font-weight-light">J.K. Rowling</h4>
                         <p>14.50£</p>
                     </div>
 
-                    <div class="col-12  col-md-12 col-lg-4 buttons_groups">
+                    <div class="col-12 col-md-12 col-lg-4 buttons_groups">
                         <div class="dropdown quantita_dropdown">
                             <button class="btn btn-info dropdown-toggle" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,16 +100,17 @@
                             Rimuovi
                         </button>
                     </div>
-
                 </div>
-                <div class="row no-gutters padding_top">
+            </div>
 
+            <div class="jumbotron">
+                <div class="row no-gutters padding_top">
                     <div class="col-3  col-md-6 col-lg-4 ">
                         <img src="https://copertine.hoepli.it/hoepli/xxl/978/8817/9788817079761.jpg"
-                             class="float-left imgReservation" alt="...">
+                             class="float-left imgReservation">
                     </div>
 
-                    <div class="col-12   col-md-6 col-lg-4 title_margin">
+                    <div class="col-12 col-md-6 col-lg-4 title_margin">
                         <h3 >La teoria del tutto. Origine e destino dell'universo</h3>
                         <h4 class="font-weight-light">Stephen Hawking</h4>
                         <p>14.50£</p>
@@ -147,11 +143,11 @@
                             Rimuovi
                         </button>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
     <div class="container size_body_30" >
         <div class="row jumbotron row_jumbo">
             <div class="col-3 col-lg-3 col-md-3 col-sm-3">
@@ -169,7 +165,7 @@
                    class="inner_color_link" n><button type="button" class="btn btn-info">Acquista</button></a>
             </div>
         </div>
-        <div class="row jumbotron " style="margin-left: 10px">
+        <div class="row jumbotron row_jumbo">
             <h4><i class="fa fa-credit-card" aria-hidden="true"></i></h4>
             <h4>Modalità di pagamento disponibili</h4>
             <div>
@@ -178,5 +174,15 @@
         </div>
     </div>
 </div>
+
+<script crossorigin="anonymous" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+
+</script>
 </body>
 </html>

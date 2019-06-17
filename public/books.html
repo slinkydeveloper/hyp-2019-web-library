@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Titti i libri</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/stylesheetPages.css" type="text/css">
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Libri</title>
 
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/stylesheetPages.css" rel="stylesheet">
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">LIBRI DAL M<i class="fa fa-globe" aria-hidden="true"></i>ND<i class="fa fa-globe" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">LIBRI DAL MONDO</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -40,19 +36,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                   aria-hidden="true"></i> Carrello</a>
-            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
-            <li><a href="login.html"> Login</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="bookReservation.html">
+                    <i aria-hidden="true" class="fa fa-shopping-cart"></i> Carrello
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item space_menu">
+                <a class="nav-link" href="signUp.html">Sign Up</a>
+            </li>
         </ul>
     </div>
 </nav>
-
-
 
 <div class="container divisor for_dropdown_in_container font-weight-light">
     <ol class="breadcrumb" style="background-color: white">
@@ -61,16 +60,16 @@
     </ol>
     <div class="jumbotron " id="menuFilter">
 
-        <h1 class="font-weight-light display-4"><i class="fa fa-book"></i>  Galleria online di libri</h1>
+        <h1 class="font-weight-light display-4"><i class="fa fa-book"></i>Galleria online di libri</h1>
         <p>Sfoglia i libri a tua disposizione</p>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myBtnContainer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-brand btn font-weight-light"  onclick="loadBooksAndRender('/api/book')">Tutti i libri</button>
-            <button class="navbar-toggler font-weight-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <button class="navbar-toggler font-weight-light" type="button" data-toggle="collapse" data-target="#myBtnContainer"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="myBtnContainer">
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
@@ -106,9 +105,12 @@
     </div>
 </div>
 
-
+<script crossorigin="anonymous" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
-
     function loadBooksAndRender(path) {
         $.ajax({
             type: "GET",
@@ -119,17 +121,16 @@
 
                 for (i = 0; i < data.length; i++) {
                     $('#containerBookFirstPage').append(`<div class="col-6 col-md-3 col-lg-3">
-            <h5 class="margin_top_h5"><a href="book.html?isbn=${data[i]['isbn']}" class="text-dark">${data[i]['name']}</a></h5>
-            <div ><a href="book.html?isbn=${data[i]['isbn']}" class="all">
-                <img class="img-thumbnail-books" src="http://covers.openlibrary.org/b/isbn/${data[i]['isbn']}-L.jpg">
-            </a>
-            </div>
-            <p class="margin_top_pixel margin_bottom_pixel"><a href="author.html?id=${data[i]['Author']['id']}" class="text-dark">${data[i]['Author']['name']}</a></p>
-            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Theme']['name']}</p>
-            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Genre']['name']}</p>
-
-        </div>`);
-
+                        <h5 class="margin_top_h5"><a href="book.html?isbn=${data[i]['isbn']}" class="text-dark">${data[i]['name']}</a></h5>
+                        <div>
+                            <a href="book.html?isbn=${data[i]['isbn']}" class="all">
+                                <img class="img-thumbnail-books" src="http://covers.openlibrary.org/b/isbn/${data[i]['isbn']}-L.jpg">
+                            </a>
+                        </div>
+                            <p class="margin_top_pixel margin_bottom_pixel"><a href="author.html?id=${data[i]['Author']['id']}" class="text-dark">${data[i]['Author']['name']}</a></p>
+                            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Theme']['name']}</p>
+                            <p class="margin_top_pixel margin_bottom_pixel">${data[i]['Genre']['name']}</p>
+                        </div>`);
                 }
             }
         });
@@ -171,8 +172,6 @@
 
     // When page bootstraps for the first time we must show all books
     loadBooksAndRender("/api/book");
-    
 </script>
-
 </body>
 </html>

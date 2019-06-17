@@ -15,7 +15,7 @@ paths:
         - cookieSession: []
       responses:
         200:
-          description: OK
+          description:
           content:
             application/json:
               schema:

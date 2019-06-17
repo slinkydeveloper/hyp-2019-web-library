@@ -1,7 +1,7 @@
 const model = require('../models/index.js');
 const _ = require('lodash');
 const config = require('../config/config.js');
-const doSHA512 = (str) => require('crypto').createHash('sha512').update(str).digest('ascii');
+const doSHA512 = (str) => require('crypto').createHash('sha512').update(str).digest('hex');
 const loggedCheckMiddleware = require('../utils/logged_check');
 
 module.exports = (app, validator) => {

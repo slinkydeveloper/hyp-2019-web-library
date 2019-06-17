@@ -1,34 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <title>Tutti gli autori</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/stylesheetPages.css" type="text/css">
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Autori</title>
 
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/stylesheetPages.css" rel="stylesheet">
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">LIBRI DAL M<i class="fa fa-globe" aria-hidden="true"></i>ND<i class="fa fa-globe" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">LIBRI DAL MONDO</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -43,19 +36,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                   aria-hidden="true"></i> Carrello</a>
-            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
-            <li><a href="login.html"> Login</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="bookReservation.html">
+                    <i aria-hidden="true" class="fa fa-shopping-cart"></i> Carrello
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item space_menu">
+                <a class="nav-link" href="signUp.html">Sign Up</a>
+            </li>
         </ul>
     </div>
 </nav>
-
-
 
 <div class="container margin_top_event font-weight-light">
     <ol class="breadcrumb" style="background-color: white">
@@ -71,63 +67,41 @@
     <div>
         <div class="row no-gutters">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-
                 <div class="jumbotron" >
-                    <div class="row" id="containerAutori">
-
+                    <div class="row" id="containerAuthors">
+                        <!-- Dynamic loaded content: list of authors -->
                     </div>
-
                 </div>
             </div>
-
-
         </div>
     </div>
-
 </div>
 
-<script src="filter.js"></script>
-
-
+<script crossorigin="anonymous" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
-
-    function getQueryVariable(variable)
-    {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i=0;i<vars.length;i++) {
-            var pair = vars[i].split("=");
-            if(pair[0] == variable){return pair[1];}
-        }
-        return(false);
-    }
-
-    var id = getQueryVariable("id");
-
-
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "/api/author",
-        success: function (data) {
-            for (i = 0; i < data.length; i++) {
-                $('#containerAutori').append(`
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 margin_login">
-
-                    <h4 class="margin_top_h5 text-center font-weight-light"><a href="author.html?id=${data[i]['id']}" class="text-dark" >${data[i]['name']}</a></h4>
-
-                    <a href="author.html?id=${data[i]['id']}">
-                        <img class="img-thumbnail authors-image mx-auto d-block" src="/assets/img/author/${data[i]['id']}.jpg">
-                    </a>
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/api/author",
+            success: function (data) {
+                for (i = 0; i < data.length; i++) {
+                    $('#containerAuthors').append(`
+                    <div class="col-6 text-center mb-3">
+                        <h5 class="font-weight-light" style="height: 46px; position:relative;"><a style="transform: translateY(-50%)translatex(-50%);position: absolute;top: 50%;left: 50%;" href="author.html?id=${data[i]['id']}" class="text-dark" >${data[i]['name']}</a></h5>
+                        <a href="author.html?id=${data[i]['id']}">
+                            <img class="img-thumbnail authors-image" src="/assets/img/author/${data[i]['id']}.jpg">
+                        </a>
                     </div>
                 `);
+                }
             }
-
-
-        }
+        });
     });
-
 </script>
-
 </body>
 </html>

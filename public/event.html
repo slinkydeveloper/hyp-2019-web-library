@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Evento</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/stylesheetPages.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/stylesheetPages.css" rel="stylesheet">
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">LIBRI DAL M<i class="fa fa-globe" aria-hidden="true"></i>ND<i class="fa fa-globe" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">LIBRI DAL MONDO</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -36,24 +36,28 @@
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                   aria-hidden="true"></i> Carrello</a>
-            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
-            <li><a href="login.html"> Login</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="bookReservation.html">
+                    <i aria-hidden="true" class="fa fa-shopping-cart"></i> Carrello
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item space_menu">
+                <a class="nav-link" href="signUp.html">Sign Up</a>
+            </li>
         </ul>
     </div>
 </nav>
-
 
 <div class="container margin_top_event margin_event font-weight-light">
     <ol class="breadcrumb" style="background-color: white">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
         <li class="breadcrumb-item"><a href="events.html">Eventi</a></li>
-        <li class="breadcrumb-item active">Evento</li>
+        <li id="breadcrumb" class="breadcrumb-item active"></li>
     </ol>
     <div class="jumbotron ">
         <section class="section pb-5">
@@ -78,10 +82,13 @@
     </div>
 </div>
 
+<script crossorigin="anonymous" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
-
-    function getQueryVariable(variable)
-    {
+    function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
         for (var i=0;i<vars.length;i++) {
@@ -94,11 +101,11 @@
     var idEvent = getQueryVariable("id");
 
     $.ajax({
-
         type: "GET",
         dataType: "json",
         url: "/api/bookEvent/" + idEvent,
         success: function (data) {
+            $('#breadcrumb').append(data['Book']['name'] + " a " + data['location'])
             $('#titleEvent').append(` Presentazione del libro ${data['Book']['name']} a "${data['location']}"`);
             $('#relator').append(`Presenta: ${data['presenter']}`);
             $('#location').append(`Dove: ${data['location']}`);
@@ -112,9 +119,8 @@
                                 frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 `)
-            }
+        }
     });
-
 </script>
 </body>
 </html>

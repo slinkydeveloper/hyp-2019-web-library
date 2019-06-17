@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/stylesheetPages.css">
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/stylesheetPages.css" rel="stylesheet">
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">LIBRI DAL M<i class="fa fa-globe" aria-hidden="true"></i>ND<i class="fa fa-globe" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">LIBRI DAL MONDO</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -36,18 +36,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="contactUs.html">Contattaci</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="bookReservation.html"><i class="fa fa-shopping-cart"
-                                                                   aria-hidden="true"></i> Carrello</a>
-            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="space_menu"><a href="signUp.html">Sign Up</a></li>
-            <li><a href="login.html"> Login</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="bookReservation.html">
+                    <i aria-hidden="true" class="fa fa-shopping-cart"></i> Carrello
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item space_menu">
+                <a class="nav-link" href="signUp.html">Sign Up</a>
+            </li>
         </ul>
     </div>
 </nav>
-
 
 <div class="container margin_login font-weight-light">
     <ol class="breadcrumb" style="background-color: white">
@@ -57,15 +61,49 @@
 
     <div class="jumbotron margin_login">
         <h3><i class="fa fa-user-o" aria-hidden="true"></i>  Login</h3>
-        <p>
-            <label for="username">Username:</label>
-            <input id="username" type="text" name="name" required>
-            <label for="password">Password:</label>
-            <input id="password" type="password" name="password" required>
-        </p>
-        <a href="okLoginSignUp.html" class="inner_color_link"><button class="btn btn-primary">Submit</button></a>
+        <form action="/api/user/login" method="POST" id="login">
+            <div class="form-group">
+                <label for="username">Nome utente</label>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" placeholder="Inserisci il tuo nome utente">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la tua password">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrati</button>
+        </form>
     </div>
 </div>
 
+<script crossorigin="anonymous" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $('#login').submit(function(e) {
+        let username = $('#username').val().trim();
+
+        let form = $(this);
+        let url = form.attr('action');
+        let formData = JSON.stringify({
+            "usernameOrMail": username,
+            "password": $('#password').val().trim()
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: formData,
+            contentType : "application/json",
+            success: function() {
+                window.localStorage.setItem("username", username);
+                window.location.href = "okLoginSignUp.html"
+            }
+        });
+
+        e.preventDefault();
+    });
+</script>
 </body>
 </html>
